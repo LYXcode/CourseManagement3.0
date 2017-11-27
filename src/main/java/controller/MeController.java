@@ -40,7 +40,7 @@ public class MeController {
 	 * @return String 返回网页的文件名
 	 */
 	@RequestMapping(value="/signin",method=GET)
-	public String signinWechat(String code,String state,String success_url){
+	public String signinWechat(String code,String state,String successUrl){
 		return "";
 	}
 }
