@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * SchoolController class
+ * 学校Controller层
+ * @author 艾星
+ * @date 2017/11/28
+ */
 @Controller
 @RequestMapping("/school")
 public class SchoolController {

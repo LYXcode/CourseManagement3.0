@@ -5,6 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * GroupController class
+ * 小组Controller层
+ * @author 艾星
+ * @date 2017/11/28
+ */
 @Controller
 @RequestMapping("/group")
 public class GroupController {
