@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+
+.box{
+	background-color: black;
+	height: 950px;/*本高度适用于1080p下Chrome浏览器*/
+width:100%;
+}
+/*
+ * 顶部标题栏
+ */
+.header{
+	height: 10%;
+	width:100%;
+	background-color: #7AD8E6;
+	
+}
+.header h1{
+	color: white;
+	text-align: center;
+	padding: 30px;
+}
+.header h1 a{
+	font-size: 5px;
+	padding: 0 0px;
+	position: relative;
+	left: 520px;
+	text-decoration: none;
+	color: white;
+}
+.header h1 a:link,.header h1 a:visited {
+	color: #8E8E8E;
+	text-decoration: none;
+}
+.header h1 a:hover,.header h1 a:active {
+	color:rgba(255,209,75,1.00) ;
+	text-decoration: none;
+}
+.header h1 a img{
+	width: 24px;
+	position: relative;
+	top: 5px;
+	right: 2px;
+}
+
+/*
+ * 主体部分
+ */		
+.main_box{
+	height: 84%;
+	
+	background-color: green;
+	
+}		
+/*
+ * 左侧区导航
+ */
+.main_box_left{
+	float: left;
+	width: 16%;
+	height: 100%;
+	background-color: #E0E0E0;
+
+}
+.main_box_left h2{
+	color: #2FB5E1;
+	
+	margin-left: 50px;
+}
+.main_box_left hr{
+	color: #2FB5E1;
+	border: 1px solid #2FB5E1;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.main_box_left div p{
+	padding: 5px 10px;
+}
+/*
+ * 右侧区新建课程
+ */
+.main_box_right{
+	float: right;
+	/*height: 900px;*/
+	width: 84%;
+	height: 100%;
+	background-color: white;
+}
+.main_box_right h2{
+	color: #2FB5E1;
+	margin-left: 10px;
+}
+.main_box_right hr{
+	color: #2FB5E1;
+	border: 1px solid #2FB5E1;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.main_box_right_content{
+	background-color:rgba(181,255,217,1.00);
+	border-radius: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 20%;
+}
+.main_box_right_content h3{
+	color: black;
+	text-align: center;
+	padding: 12px;
+}
+.main_box_right_content button{
+	background-color:rgba(130,167,253,1.00);
+	padding: 2px 3px;
+	font-size: 10px;
+	float: right;
+	border:none ;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+.main_box_right_content hr{
+	color: white;
+	border: 1px solid white;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+	
+.main_box_right_content div p{
+	padding: 5px 10px;
+}
+.main_box_right_content img{
+		
+}
+.newcourse form{
+	margin-left: 300px;
+	}
+.
+	.button{
+	text-align:center;}
+.button input{
+	margin:10px auto;
+	border:none ;
+	border-radius: 10px;
+	margin-right: 10px;
+	width:100px;
+	height:30px;
+	
+	}
+/*
+ * 底部签名栏
+ */
+.footer{
+	height: 6%;
+	/*background-color: blue;*/
+	background-color: white;
+	
+}
+.footer p{
+	float: right;
+	margin-right: 200px;
+	font-size: 10%;
+	color: #B9B9B9;
+}

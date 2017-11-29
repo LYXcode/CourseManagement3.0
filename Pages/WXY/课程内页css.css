@@ -1,0 +1,139 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+
+.box{
+	background-color: white;
+	height: 950px;/*本高度适用于1080p下Chrome浏览器*/
+}
+/*
+ * 顶部标题栏
+ */
+.header{
+	height: 10%;
+	background-color: #7AD8E6;
+	
+}
+.header h1{
+	color: white;
+	text-align: center;
+	padding: 30px;
+	font-size : 40px;
+}
+.header h1 a{
+	font-size: 20px;
+	padding: 0 0px;
+	position: relative;
+	left: 520px;
+	text-decoration: none;
+	color: white;
+}
+.header h1 a:link,.header h1 a:visited {
+	color: #8E8E8E;
+	text-decoration: none;
+}
+.header h1 a:hover,.header h1 a:active {
+	color:rgba(255,209,75,1.00) ;
+	text-decoration: none;
+}
+.header h1 a img{
+	width: 24px;
+	position: relative;
+	top: 5px;
+	right: 2px;
+}
+
+/*
+ * 主体部分
+ */		
+.main_box{
+	height: 90%;
+	font-size : 24px;
+	background-color: green;
+	
+}		
+
+.main_box_left{
+	float: left;
+	width: 20%;
+	height: 100%;
+	background-color: #E0E0E0;
+    font-size : 24px;
+}
+.main_box_left h2{
+	color: #2FB5E1;
+	text-align:center ;	
+}
+.main_box_left hr{
+	color: #2FB5E1;
+	border: 1px solid #2FB5E1;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.main_box_left div p{
+	padding: 5px 10px;
+}
+
+.main_box_right{
+	float: right;
+	/*height: 900px;*/
+	width: 80%;
+	height: 100%;
+	background-color: white;
+}
+.main_box_right h2{
+	color: #2FB5E1;
+	margin-left: 10px;
+}
+.main_box_right hr{
+	color: #2FB5E1;
+	border: 1px solid #2FB5E1;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+.main_box_right_content{
+	
+	border-radius: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 40%;
+}
+
+.main_box_right_content button{
+	background-color: #7AD8E6;
+	font-weight: bold;
+	padding: 30px 60px;
+	font-size: 30px;
+	margin-left:4cm;
+	border:none ;
+	border-radius: 20px;
+	margin-right: 10px;
+}
+.main_box_right_content button:visited {
+	color: #8E8E8E;
+	text-decoration: none;
+}
+.main_box_right_content button:active {
+	color:rgba(255,209,75,1.00) ;
+	text-decoration: none;
+}
+.main_box_right_content button img{
+	width: 24px;
+	position: relative;
+	top: 5px;
+	right: 2px;
+}
+
+.main_box_right_content hr{
+	color: white;
+	border: 1px solid white;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+	
+
+

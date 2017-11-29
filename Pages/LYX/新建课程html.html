@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新建课程</title>
+<link href="新建课程css.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div class="box">
+	<div class="header">
+		<h1> 课堂管理系统
+			<a >首页</a> 
+			<a>帮助</a> 
+			<a>退出</a> 
+		</h1>
+	</div><!--header结束-->
+	<div class="main_box">
+		<div class="main_box_left">
+			<h2>导航</h2>
+			<hr/>
+			<div>
+				<p><a href="基本信息界面">基本信息</a></p>
+				<p><a href="课程信息">课程信息</a></p>
+                <p><a href="选择课程">选择课程</a></p>
+			</div>
+		</div>
+		<div class="main_box_right">
+		  <h2>新建课程</h2>
+		  <hr/>
+	      <br/>
+          <div class="newcourse">
+       
+          <form>
+          <p>课程名称*：<input type="text" name="coursename"/></p>
+          <br/>
+          <p>开始时间*：<input type="datetime" name="begintime">  结束时间*：<input type="datetime" name="endtime"></p>
+          <br/>
+          <p>课程介绍：</p>
+          <textarea name="courseinfo" cols="80" rows="5"></textarea>
+           <br/>
+           <br/>
+          <p>评分规则*： </p><br/>
+         
+       <div class="scorerule"><p> 讨论课分数占比:<input type="text" name="seminarscore">报告分数占比：<input type="text" name="reportscore"></p>
+       <br/>
+       <p>五分占比:<input type="text" name="five">四分占比：<input type="text" name="four">三分占比：<input type="text" name="three"></p>
+         </div>
+         <br/>
+         <br/>
+        
+         <div class="button">
+          
+          <input type="submit" name="submit"><input type="reset" name="reset">
+          
+          </div>
+          </form>
+      
+          </div>
+
+		</div>
+	</div><!--mainbox结束-->
+	<div class="footer">
+		
+	</div><!--footer结束-->
+</div><!--该页结束-->
+</body>
+</html>
