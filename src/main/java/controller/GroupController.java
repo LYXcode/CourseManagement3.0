@@ -21,8 +21,8 @@ public class GroupController {
      * 按小组Id获得小组详情
      * @author 艾星
      * @param groupId
-     * @return
-     * @throws JsonProcessingException 
+	 * @return String 返回Json数据
+	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}",method=GET)
     public String getGroupInfoById(int groupId) throws JsonProcessingException{
