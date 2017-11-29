@@ -23,20 +23,23 @@ public class MeController {
 	 * @throws JsonProcessingException Json处理异常
 	 */
     private ObjectMapper mapper=new ObjectMapper();
-    private Object obj;
+    //private Object obj;
 	@RequestMapping(value="/me",method=GET)
 	public String getCurrentUser() throws JsonProcessingException{
-		return mapper.writeValueAsString(obj);
+		//return mapper.writeValueAsString(obj);
+		return mapper.writeValueAsString("{\"id\": 3486, \"type\": \"student\", \"name\": \"\u5F20\u4E09\", \"number\": \"23320152202333\", \"phone\": \"18911114514\", \"email\": \"23320152202333@stu.xmu.edu.cn\", \"gender\": \"male\", \"school\": {\"id\": 32, \"name\": \"\u53A6\u95E8\u5927\u5B66\"}, \"title\": \"\", \"avatar\": \"/avatar/3486.png\"}");
 	}
 	/**
 	 * 修改当前用户
 	 * @author 吕柏翰
+	 * @param request 传递过来的request信息
 	 * @return String 返回Json数据
 	 * @throws JsonProcessingException Json处理异常
 	 */
 	@RequestMapping(value="/me",method=PUT)
-	public String updateCurrentUser() throws JsonProcessingException{
-		return mapper.writeValueAsString(obj);
+	public String updateCurrentUser(String request) throws JsonProcessingException{
+		//return mapper.writeValueAsString(obj);
+		return mapper.writeValueAsString("{}");
 	}
 	/**
 	 * 微信小程序/OAuth2登录
@@ -49,6 +52,7 @@ public class MeController {
 	 */
 	@RequestMapping(value="/signin",method=GET)
 	public String signinWechat(String code,String state,String successUrl) throws JsonProcessingException{
-		return mapper.writeValueAsString(obj);
+		//return mapper.writeValueAsString(obj);
+		return mapper.writeValueAsString("{\"id\": 3486, \"type\": \"student\", \"name\": \"\u5F20\u4E09\", \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJPQTAwMDEiLCJpYXQiOjE0ODI2NTcyODQyMjF9.TeJpy936w610Vrrm+c3+RXouCA9k1AX0Bk8qURkYkdo=\"}");
 	}
 }
