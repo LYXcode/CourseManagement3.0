@@ -23,7 +23,7 @@ public class MeController {
 	 * @throws JsonProcessingException Json处理异常
 	 */
     private ObjectMapper mapper=new ObjectMapper();
-    //private Object obj;
+    private Object obj;
 	@RequestMapping(value="/me",method=GET)
 	public String getCurrentUser() throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
