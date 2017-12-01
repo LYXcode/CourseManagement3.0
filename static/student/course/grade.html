@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>查看分数</title>
+<link href="查看分数.css" rel="stylesheet" type="text/css"> 
+</head>
+
+<body>
+		<div class="top">
+        	<div class="font">
+        		课堂管理系统
+        	</div>
+        	<div class="icon">
+        		<img src=".\home.png">首页
+        		<img src=".\help.png">帮助
+        		<img src=".\exit.png">退出
+        	</div>
+        	<div class="clear"></div>
+    	</div>
+		<div class="body">
+			<div class="navigation">
+				<div class="courseName">OOAD</div>
+				<hr class="line"/>
+				<div class="courseIntroduction">OOAD（Object Oriented Analysis Design，面向对象的分析和设计，面向对象分析与设计）是现代软件企业广为采用的一项有效技术。OOAD方法要求在设计中要映射现实世界中指定问题域中的对象和实体，例如：顾客、汽车和销售人员等。这就需要设计要尽可能地接近现实世界，即以最自然的方式表述实体。所以面向对象技术的优点即为能够构建与现实世界相对应的问题模型，并保持他们的结构、关系和行为为模式。</div>
+			</div>
+			<div class="content">
+				<div class="title">查看分数</div>
+				<div class="returnButton"><a class="a">返回上一页</a></div>
+				<hr class="line"><br><br>
+				<table class="customers">
+							<tr>
+								<th> 讨论课</th>
+								<th>组名</th>
+								<th>组长</th>
+								<th>课堂讨论得分</th>
+								<th>报告分数</th>
+								<th>总分</th>
+							</tr>
+							<tr>
+								<td> 1</td>
+								<td>1-A-1</td>
+								<td>小黑</td>
+								<td>5</td>
+								<td>5</td>
+								<td>5</td>								
+							</tr>
+							<tr class="alt">
+								<td> 2</td>
+								<td>1-A-1</td>
+								<td>小黑</td>
+								<td>5</td>
+								<td>5</td>
+								<td>5</td>								
+							</tr>
+							<tr>
+								<td> 3</td>
+								<td>1-A-1</td>
+								<td>小黑</td>
+								<td>5</td>
+								<td>5</td>
+								<td>5</td>					
+							</tr>
+							<tr class="alt">
+								<td> 4</td>
+								<td>1-A-1</td>
+								<td>小黑</td>
+								<td>5</td>								
+								<td>5</td>
+								<td>5</td>							
+							</tr>
+							<tr>
+								<td> 5</td>
+								<td>1-A-1</td>
+								<td>小黑</td>
+								<td>5</td>							
+								<td>5</td>
+								<td>5</td>							
+							</tr>
+							<tr class="alt">
+								<td> 6</td>
+								<td>1-A-1</td>
+								<td>小黑</td>
+								<td>5</td>						
+								<td>5</td>
+								<td>5</td>								
+							</tr>
+							<tr>
+								<td> 7</td>
+								<td>1-A-1</td>
+								<td>小黑</td>
+								<td>5</td>
+								<td>5</td>
+								<td>5</td>
+							</tr>
+						
+			</table>
+			<div class="grade">成绩分布情况图：</div>
+			<span class="chart" name="chartcontainer">
+				
+			</span>
+			</div>
+		</div>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> 
+<script src="查看分数.js" charset="utf-8"></script>
+</body>
+</html>
