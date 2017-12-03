@@ -2,61 +2,74 @@ package entity;
 
 import java.util.Date;
 
+/**
+ * Course class
+ * 课程
+ * @author 吕柏翰
+ * @date 2017/12/03
+ */
 public class Course {
-    String name;
-    String id;
-    Date startTime;
-    Date endTime;
-    int classNum;
-    int stuNum;
-    Proportions pro;
-    String description;
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public Date getStartTime() {
-        return startTime;
-    }
-    public void setStartTime(Date beginTime) {
-        this.startTime = beginTime;
-    }
-    public Date getEndTime() {
-        return endTime;
-    }
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-    public int getClassNum() {
-        return classNum;
-    }
-    public void setClassNum(int classNum) {
-        this.classNum = classNum;
-    }
-    public int getStuNum() {
-        return stuNum;
-    }
-    public void setStuNum(int stuNum) {
-        this.stuNum = stuNum;
-    }
-    public Proportions getPro() {
-        return pro;
-    }
-    public void setPro(Proportions pro) {
-        this.pro = pro;
-    }
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	int id;
+	User teacher;
+	String name;
+	int numClass;
+	int numStudent;
+	Date startTime;
+	Date endTime;
+	String description;
+	Proportions proportions;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public User getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(User teacher) {
+		this.teacher = teacher;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getNumClass() {
+		return numClass;
+	}
+	public void setNumClass(int numClass) {
+		this.numClass = numClass;
+	}
+	public int getNumStudent() {
+		return numStudent;
+	}
+	public void setNumStudent(int numStudent) {
+		this.numStudent = numStudent;
+	}
+	public Date getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
+	}
+	public Date getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public Proportions getProportions() {
+		return proportions;
+	}
+	public void setProportions(Proportions proportions) {
+		this.proportions = proportions;
+	}
 }
