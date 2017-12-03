@@ -3,8 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>学生基本信息</title>
-    <link href="新基本信息css.css" rel="stylesheet" type="text/css"/>
-    
+    <link href="../css/student_user.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../js/student_user.js"  type="text/javascript"></script>
 </head>
 <body>
     	<div class="top">
@@ -12,9 +13,9 @@
         		课堂管理系统
         	</div>
         	<div class="icon">
-        		<img src=".././home.png">首页
-        		<img src=".././help.png">帮助
-        		<img src=".././exit.png">退出
+        		<img src="../img/home.png">首页
+        		<img src="../img/help.png">帮助
+        		<img src="../img/exit.png">退出
         	</div>
         	<div class="clear"></div>
     	</div>
@@ -28,25 +29,25 @@
             
                <div class="title">基本信息</div>
                <div class="line"></div>
-                <div class="imgarea"><img class="img" src="link.jpg"/></div>
+                <div class="imgarea"><img class="img" id="avatar" src="../img/link.jpg"/></div>
                 
                  <div class="info">
         <table class="table">
         <tr class="itemName">
-        <td >用户名：<span>12345678978</span></td>
-        <td>姓名：<span>XXX</span></td>
+        <td >用户名：<span id="username">12345678978</span></td>
+        <td>姓名：<span id="name">XXX</span></td>
         </tr>
         <tr class="itemName">
-        <td>性别：<span>12345678978</span></td>
-        <td>学校：<span>12345678978</span></td>
+        <td>性别：<span id="gender">12345678978</span></td>
+        <td>学校：<span id="university">12345678978</span></td>
         </tr>
         <tr class="itemName">
-        <td>所在学院：<span>12345678978</span></td>
-        <td>学历：<span>12345678978</span></td>
+        <td>所在学院：<span id="school">12345678978</span></td>
+        <td>学历：<span id="title">12345678978</span></td>
         </tr>
         <tr class="itemName">
-        <td>E-mail：<span>12345678978</span></td>
-        <td>联系方式：<span>12345678978</span></td>
+        <td>E-mail：<span id="E-mail">12345678978</span></td>
+        <td>联系方式：<span id="phone">12345678978</span></td>
         </tr>
         </table>
         <br/>
@@ -54,7 +55,7 @@
         <br/>
         <br/>
         <div class="button">
-        <button>修改</button>
+        <button id="edit" onclick='onClick()'>修改</button>
         </div>
         </div>
             </div>

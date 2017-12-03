@@ -50,3 +50,7 @@ $(function(){
 		window.location.href="../../teacher/course/seminar/teacher_seminar_index.html?id="+classid;
 	});
 });
+
+function onReturn(){
+	window.location.href="../teacher_index.html";
+	}

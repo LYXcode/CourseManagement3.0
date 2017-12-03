@@ -34,7 +34,16 @@ public class SeminarController {
         sem.setName("后台来的讨论课");
         return sem;
     }
-    
+    /**
+     * 按Id修改讨论课
+     * @author 艾星
+     * @param seminarId
+     */
+    @RequestMapping(value="/{seminarId}",method=PUT)
+    @ResponseBody
+    public void editSeminarById(@PathVariable Integer seminarId){
+        System.out.println("seminarId"+seminarId);
+    }
     /**
      * 按Id删除讨论课
      * @author 艾星
@@ -103,8 +112,9 @@ public class SeminarController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{seminarId}/topic",method=POST)
-    public String createNewTopic1(int seminarId) throws JsonProcessingException{
-        return "";
+    @ResponseBody
+    public void createNewTopic1(@PathVariable int seminarId) throws JsonProcessingException{
+        
     }
     
     /**

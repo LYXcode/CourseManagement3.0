@@ -17,14 +17,10 @@ $.ajax({
 });
 
  function onClick(){
-            	$.ajax({
-            		url:'/me',
-            		type:'GET',
-                    success:function(data){
-                       //$('.username').html(data.name);
-                      window.location.href='edit.html';
-                       }
-            	});
+            	
+                      window.location.href="student_edit.html";
+                       
+            	
             }
 			
 	

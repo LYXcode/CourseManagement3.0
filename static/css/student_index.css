@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>学生课程首页</title>
-    <link rel="stylesheet" href="{$base}/raffle/bootstrap.min.css">
-    <style>
-        html
+@charset "utf-8";
+/* CSS Document */
+   html
         {
          height:100%;
          margin:0;
@@ -18,6 +13,7 @@
       .top{
         width: 100%;
         height: 16%;
+		min-height: 100px;
         background-color: rgba(65,199,219,0.7);
         text-align: center;
         margin: 0 auto;
@@ -48,13 +44,13 @@
         clear: both;
       }
       .font{
-      	width: 20%;
+      	width: 50%;
         font-family: YouYuan;
         font-size: 40px;
         font-weight: bold;
-        margin-left: 35%;
-        text-align: center;
-        padding: 2%;
+        text-align: right;
+        padding-top: 2%;
+        margin-left: 9%;
         float: left;
         color: #FFFFFF;
       }
@@ -116,7 +112,7 @@
         font-family: YouYuan;
         font-size: 20px;
         font-weight: bold;
-        padding-top: 15%;
+        padding-top: 20%;
         color: #000000;
       }
       
@@ -126,7 +122,7 @@
         border: 1.5px solid #41C7DB;
       }
       .icon{
-      	width:20%;
+      	width:25%;
       	font-family: YouYuan;
       	font-size: 20px;
       	text-align: center;
@@ -145,48 +141,3 @@
       	margin-left: 85%;
       	z-index: 100;
       }
-    </style>
-</head>
-<body>
-    	<div class="top">
-        	<div class="font">
-        		课堂管理系统
-        	</div>
-        	<div class="icon">
-        		<img src=".\home.png">首页
-        		<img src=".\help.png">帮助
-        		<img src=".\exit.png">退出
-        	</div>
-        	<div class="clear"></div>
-    	</div>
-        <div class="body">
-            <div class="navigation">
-                <div class="courseName">OOAD</div>
-                <div class="line"></div>
-                <div class="courseIntroduction">ooad is xxx</div>
-            </div>
-            <div class="content">
-                <div class="classInfo">
-                    <div class="title">讨论课</div>
-                    <div class="returnButton">返回上一页</div>
-                    <div class="line"></div>
-                    <div class="blockBody">
-                        <div class="block"><div class="blockFont">讨论课1</div></div>
-                        <div class="block"><div class="blockFont">讨论课2</div></div>
-                        <div class="block"><div class="blockFont">讨论课3</div></div>
-						<div class="block"><div class="blockFont">讨论课4</div></div>
-						<div class="block"><div class="blockFont">讨论课5</div></div>
-						<div class="block"><div class="blockFont">讨论课6</div></div>
-                    </div>
-                </div>
-                <div class="seminarInfo">
-                    <div class="title">课程分组</div>
-                    <div class="line"></div>
-                    <div class="blockBody">
-                        <div class="block"><div class="blockFont">固定分组</div></div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-</body>
-</html>

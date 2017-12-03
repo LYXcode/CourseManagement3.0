@@ -34,6 +34,5 @@ function onClick(){
 			alert("成功返回");
 			window.location.href="../../course/teacher_course_index.html?id="+courseid;
 		}
-	})
-	
+	});
 }

@@ -1,9 +1,15 @@
 package controller;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import entity.Topic;
 
 /**
  * 
@@ -26,20 +32,23 @@ public class TopicController {
      * @return
      * @throws JsonProcessingException 
      */
-    @RequestMapping(value="/{topicId}",method=GET) 
-    public String getTopicById(int topicId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @RequestMapping(value="/{topicId}",method=GET)
+    @ResponseBody
+    public Object getTopicById(@PathVariable int topicId,@RequestBody Topic topic) throws JsonProcessingException{
+        System.out.println(topic.getName());
+        return topic;
     }
     
     /**
-     * 按Id删除讨论课话题
+     * 按Id修改讨论课话题
      * @author 艾星
      * @param topicId
      * @return
      */
-    @RequestMapping(value="/{topicId}",method=DELETE)
-    public String deleteTopicById(int topicId){
-        return "";
+    @RequestMapping(value="/{topicId}",method=PUT)
+    @ResponseBody
+    public void deleteTopicById(@PathVariable int topicId){
+        
     }
     
     /**

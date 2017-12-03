@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+	<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生上传固定分组</title>
+    <link href="../../css/student_addToGroup.css" rel="stylesheet" type="text/css"/>
+  <script src="../../js/student_addToGroup.js" type="text/javascript"></script>
+</head>
+<body>
+    
+        <div class="top">
+          <div class="font">
+            课堂管理系统
+          </div>
+          <div class="icon">
+           
+<img src="../../img/home.png">首页
+        		<img src="../../img/help.png">帮助
+        		<img src="../../img/exit.png">退出
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="body">
+            <div class="navigation">
+                <div class="courseName">OOAD</div>
+                <div class="line"></div>
+                <div class="courseIntroduction">ooad is xxx</div>
+            </div>
+            <div class="content">
+                <div class="block">
+                    <div class="title">固定分组</div>
+                    <div class="returnButton">返回上一页</div>
+                    <div class="line"></div>
+                    <div class="itemBody">
+                        <div class="item">
+                          <table id="studenttable">
+                            <tr>
+                              <th>角色</th>
+                              <th>学号</th>
+                              <th>姓名</th>
+							  <th>操作</th>
+                            </tr>
+
+                            <tr>
+                              <td name="leader">队长</td>
+							  <td >24320152200001</td>
+                              <td>Steven Jobs</td>
+							  <td></td>
+                            </tr>
+
+                            <tr class="alt">
+                              <td>队员</td>
+                              <td>24320152209999</td>
+                              <td>Li YanHong</td>
+							  <td><img src=".\home.png" onClick="Alt()"></td>
+                            </tr>
+
+                            <tr>
+                              <td>队员</td>
+                              <td>24320152208889</td>
+                              <td>Larry Page</td>
+							  <td><img src=".\home.png" onClick="Alt()"></td>
+                            </tr>
+
+                         </table>
+                        </div>
+						</div>
+					<div class="block">
+					    <div class="title">添加队员</div>
+						<div class="line"></div>
+						<div class="itemBody">
+						  <div class="item">
+                            <label class="itemName">学号：</label>
+							<input type="text" >
+							<label class="itemName">姓名：</label>
+							<input type="text">
+							 <div class="returnButton" onClick="onClick()">查询</div>
+                          </div>
+						  <div class="item">
+                             <table id="studenttable">
+						  <tr>
+                              <th>学号</th>
+                              <th>姓名</th>
+							  <th>操作</th>
+                            </tr>
+
+                            <tr>
+                              <td><span name="number">2432015220xxxx</span></td>
+							  <td><span name="name">李四</span></td>
+							  <td><img src=".\home.png" onClick="Add()"></td>
+                            </tr>
+
+                            <tr class="alt">
+                              <td><span name="number">2432015220xxxx</span></td>
+                              <td><span name="name">李五</span></td>
+							  <td><img src=".\home.png" onClick="Add()"></td>
+                            </tr>
+							
+							<tr>
+                              <td><span name="number">2432015220xxxx</span></td>
+							  <td><span name="name">李六</span></td>
+							  <td><img src=".\home.png" onClick="Add()"></td>
+                            </tr>
+                          </table>
+                          </div>
+						</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+</body>
+</html>
