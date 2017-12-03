@@ -2,10 +2,14 @@ package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import entity.User;
 
 /**
  * MeController class
@@ -25,22 +29,53 @@ public class MeController {
     private ObjectMapper mapper=new ObjectMapper();
     private Object obj;
 	@RequestMapping(value="/me",method=GET)
-	public String getCurrentUser() throws JsonProcessingException{
+	@ResponseBody
+	public Object getCurrentUser() throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
-		return mapper.writeValueAsString("{\"id\": 3486, \"type\": \"student\", \"name\": \"\u5F20\u4E09\", \"number\": \"23320152202333\", \"phone\": \"18911114514\", \"email\": \"23320152202333@stu.xmu.edu.cn\", \"gender\": \"male\", \"school\": {\"id\": 32, \"name\": \"\u53A6\u95E8\u5927\u5B66\"}, \"title\": \"\", \"avatar\": \"/avatar/3486.png\"}");
+	    User user=new User();
+	    user.setEmail("21445");
+	    user.setGender("男");
+	    user.setName("fdh");
+	    user.setPhone("1243657");
+	    user.setSchool("XXX");
+	    user.setStuffNum("24329");
+	    user.setType("副教授");
+	    return user;
 	}
 	/**
 	 * 修改当前用户
 	 * @author 吕柏翰
-	 * @param request 传递过来的request信息
+     * @param user 前端传回的数据
 	 * @return String 返回Json数据
 	 * @throws JsonProcessingException Json处理异常
 	 */
-	@RequestMapping(value="/me",method=PUT)
-	public String updateCurrentUser(String request) throws JsonProcessingException{
-		//return mapper.writeValueAsString(obj);
-		return mapper.writeValueAsString("{}");
+	@RequestMapping(value="/me",method=PATCH)
+	@ResponseBody
+	public String updateCurrentUser(@RequestBody User user) throws JsonProcessingException{
+	      System.out.println(user.getPhone());
+	        System.out.println(user.getName());
+	        System.out.println(user.getSchool());
+	        System.out.println(user.getStuffNum());
+	        System.out.println(user.getEmail());
+	        return "teacher_user.html";
 	}
+	   /**
+     * 绑定当前用户
+     * @author 艾星
+     * @param user 前端传回的数据
+     * @return String 返回Json数据
+     * @throws JsonProcessingException Json处理异常
+     */
+    @RequestMapping(value="/me",method=PUT)
+    @ResponseBody
+    public String bindCurrentUser(@RequestBody User user) throws JsonProcessingException{
+          System.out.println(user.getPhone());
+            System.out.println(user.getName());
+            System.out.println(user.getSchool());
+            System.out.println(user.getStuffNum());
+            System.out.println(user.getEmail());
+            return "teacher_index.html";
+    }
 	/**
 	 * 微信小程序/OAuth2登录
 	 * @author 吕柏翰
@@ -54,5 +89,18 @@ public class MeController {
 	public String signinWechat(String code,String state,String successUrl) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
 		return mapper.writeValueAsString("{\"id\": 3486, \"type\": \"student\", \"name\": \"\u5F20\u4E09\", \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJPQTAwMDEiLCJpYXQiOjE0ODI2NTcyODQyMjF9.TeJpy936w610Vrrm+c3+RXouCA9k1AX0Bk8qURkYkdo=\"}");
+	}
+	
+	
+	@RequestMapping(value="/register",method=POST)
+	@ResponseBody
+	public String createNewUser(@RequestBody User user){
+	    System.out.println(user.getPhone());
+	    System.out.println(user.getPassword());
+	    System.out.println(user.getName());
+	    System.out.println(user.getSchool());
+	    System.out.println(user.getStuffNum());
+	    System.out.println(user.getEmail());
+	    return "";
 	}
 }

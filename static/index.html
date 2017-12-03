@@ -1,159 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,
                                      initial-scale=1.0,
                                      maximum-scale=1.0,
                                      user-scalable=no">
     <title>ClassManage</title>
-    <!-- ×îĞÂ°æ±¾µÄ Bootstrap ºËĞÄ CSS ÎÄ¼ş -->
+    <!-- æœ€æ–°ç‰ˆæœ¬çš„ Bootstrap æ ¸å¿ƒ CSS æ–‡ä»¶ -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- ¿ÉÑ¡µÄ Bootstrap Ö÷ÌâÎÄ¼ş£¨Ò»°ã²»ÓÃÒıÈë£© -->
+    <!-- å¯é€‰çš„ Bootstrap ä¸»é¢˜æ–‡ä»¶ï¼ˆä¸€èˆ¬ä¸ç”¨å¼•å…¥ï¼‰ -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- ×îĞÂµÄ Bootstrap ºËĞÄ JavaScript ÎÄ¼ş -->
+    <!-- æœ€æ–°çš„ Bootstrap æ ¸å¿ƒ JavaScript æ–‡ä»¶ -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-<style type="text/css">
-body {background-image:url("back.png");
-background-repeat:no-repeat;}
-
-.GreyPanel
-{
-width: 634px;
-height: 934px;
-background-color: #262626;
-opacity:0.4;
-  filter:alpha(opacity=40); 
-  position:absolute;
-  left:766px;
-  top:0px;
-}
-
-.ClassManage
-{
- position:absolute;
-  left:852px;
-  top:119px;
-font-size: 72px;
-font-family:"YouYuan";
-font-weight:bold;
-color:white;
-}
-
-
-.LoginWayOne
-{
-position:absolute;
-  left:981px;
-  top:264px;
- width: 122px;
- height: 48px;
-background-color:#00FFFF;
-font-size:14px;
-line-height:48px;
-text-align:center;
-font-family:"Arial";
-}
-
-
-.LoginWayTwo
-{
-position:absolute;
-  left:1103px;
-  top:264px;
- width: 82px;
- height: 48px;
-background-color:#FFFFFF;
-font-size:14px;
-line-height:48px;
-text-align:center;
-font-family:"Arial";
-}
-
-
-.UserName
-{
-position:absolute;
-  left:855px;
-  top:368px;
-font-size:24px;
-font-weight:bold;
-font-family:"Arial";
-color:white;
-}
-
-
-.UserNameField
-{
-position:absolute;
-  left:980px;
-  top:368px;
- width: 303px;
- height: 31px;
-}
-
-
-.Password
-{
-position:absolute;
-  left:855px;
-  top:434px;
-font-size:24px;
-font-weight:bold;
-font-family:"Arial";
-color:white;
-}
-
-.PasswordField
-{
-position:absolute;
-  left:980px;
-  top:434px;
- width: 303px;
- height: 31px;
-}
-
-
-.Login
-{
-position:absolute;
-  left:981px;
-  top:531px;
-background-color:#00FFFF;
-color:#0;
-width: 298px;
- height: 56px;
-font-size:24px;
-text-align:center;
-}
-
-
-.Enroll
-{
-position:absolute;
-  left:1218px;
-  top:659px;
-font-size:24px;
-}
-</style>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/index.js"></script>
 </head>
 <body>
 <div class="GreyPanel"></div>
 <!-- cxcxzczx -->
-<div class="ClassManage">¿ÎÌÃ¹ÜÀíÏµÍ³</div>
-<div class="LoginWayOne"> <a href="home.html">ÕËºÅÃÜÂëµÇÂ¼</a></div>
-<div class="LoginWayTwo"> <a href="wechat.html">Î¢ĞÅµÇÂ¼</a></div>
-<div class="UserName"> ÓÃ»§Ãû</div>
+<div class="ClassManage">è¯¾å ‚ç®¡ç†ç³»ç»Ÿ</div>
+<div class="LoginWayOne"> <a href="home.html">è´¦å·å¯†ç ç™»å½•</a></div>
+<div class="LoginWayTwo"> <a href="wechat.html">å¾®ä¿¡ç™»å½•</a></div>
+<div class="UserName"> ç”¨æˆ·å</div>
 <input type="text" class="UserNameField"></input>
-<div class="Password"> ÃÜÂë</div>
+<div class="Password"> å¯†ç </div>
 <input type="password" class="PasswordField"></input>
-<button class="Login">µÇÂ¼</button>
-<div class="Enroll"><a href="enroll.html">×¢²á</a></div>
+<button class="Login" onclick='onClick()'>ç™»å½•</button>
+<div class="Enroll"><a href="registers.html">æ³¨å†Œ</a></div>
 </body>
 </html>

@@ -19,17 +19,21 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <link href="css/wechat.css" rel="stylesheet" type="text/css"/>
+     <link href="../../css/home.css" rel="stylesheet" type="text/css"/>
+         <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../js/home.js"></script>
 </head>
 <body>
 <div class="GreyPanel"></div>
+<!-- cxcxzczx -->
 <div class="ClassManage">课堂管理系统</div>
 <div class="LoginWayOne"> <a href="home.html">账号密码登录</a></div>
 <div class="LoginWayTwo"> <a href="wechat.html">微信登录</a></div>
-<div class="WechatText">使用微信扫一扫</div>
-<Identity>
-<input id="man" type="radio" checked="checked" name="1" />老师<input id="woman" type="radio"  name="1"/>学生
-</Identity>
-<img src="img/二维码.png" class="QRCode">
+<div class="UserName"> 用户名</div>
+<input type="text" class="UserNameField"></input>
+<div class="Password"> 密码</div>
+<input type="password" class="PasswordField"></input>
+<button class="Login" onclick="onClick()">登录</button>
+<div class="Enroll"><a href="registers.html">注册</a></div>
 </body>
 </html>

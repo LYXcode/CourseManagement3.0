@@ -1,0 +1,191 @@
+@charset "utf-8";
+/* CSS Document */
+
+	html
+        {
+         height:100%;
+         margin:0;
+        }
+        body
+        {
+            height:100%;
+            margin:0; 
+        }
+      .top{
+        width: 100%;
+        height: 16%;
+        background-color: rgba(65,199,219,0.7);
+        text-align: center;
+        margin: 0 auto;
+      }
+      .body{
+        width: 100%;
+        height: 84%;
+        background-color: white;
+      }
+      .navigation{
+        width: 20%;
+        height: 100%;
+        background-color: rgba(204,204,204,0.6);
+        float: left;
+      }
+      .content{
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        float: right;
+      }
+      .clear{
+        clear: both;
+      }
+      .font{
+      	width: 20%;
+        font-family: YouYuan;
+        font-size: 40px;
+        font-weight: bold;
+        margin-left: 35%;
+        text-align: center;
+        padding: 2%;
+        float: left;
+        color: #FFFFFF;
+      }
+      .courseName{
+        width: 20%;
+        font-family: consolas;
+        font-size: 20px;
+        color: #0BACE1;
+        margin-left: 5%;
+        margin-top: 5%;
+      }
+      .courseIntroduction{
+        width: 90%;
+        height: 80%;
+        margin-top: 4%;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: YouYuan;
+        font-size: 18px;
+      }
+      .title{
+        width: 20%;
+        font-family: YouYuan;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 1px;
+        margin-left: 2%;
+        margin-top: 1.2%;
+        color: #0BACE1;
+      }
+      
+      
+      .line{
+        width: 96%;
+        margin: 0 auto;
+        border: 1.5px solid #41C7DB;
+      }
+      .icon{
+      	width:20%;
+      	font-family: YouYuan;
+      	font-size: 20px;
+      	text-align: center;
+      	color: white;
+      	padding-top: 4%;
+      	float: right;
+      }
+      .returnButton{
+      	width: 10%;
+      	background-color: #D4EEF2;
+      	border: 1px solid #D4EEF2;
+      	border-radius: 8px;
+      	text-align: center;
+      	margin-top: -2%;
+      	margin-bottom: 1%;
+      	margin-left: 85%;
+      	z-index: 100;
+      }
+      .navigation{
+        width: 20%;
+        height: 100%;
+        background-color: rgba(199,199,199,1.00);
+        float: left;
+      }
+      .content{
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        float: right;
+
+      }
+
+      .clear{
+        clear: both;
+      }
+
+      .title{
+        width: 20%;
+        font-family: YouYuan;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 1px;
+        margin-left: 2%;
+        margin-top: 1.2%;
+        color: #0BACE1;
+      }
+     
+      .line{
+        width: 96%;
+        margin: 0 auto;
+        border: 1.5px solid #41C7DB;
+      }
+	
+.customers
+  {
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  width:90%;
+  border-collapse:collapse;
+	  margin-left: 40px;
+  }
+
+.customers td, .customers th 
+  {
+  font-size:1em;
+  border:1px solid #FFFFFF;
+  padding:4px 7px 4px 7px;
+	  text-align:center;
+  }
+
+.customers th 
+  {
+  font-size:1.1em;
+  text-align:center;
+  padding-top:4px;
+  padding-bottom:4px;
+  background-color:#89D5FF;
+  }
+
+.alt
+  {
+  background-color:#D8D8D8;
+  }
+.reportbutton{
+        width: 35%;
+        height: 30px;
+        margin-left: 5%;
+        border-radius: 5px;
+        background-color: #D4EEF2;
+	background-image: url(preview.jpg);
+	background-repeat: no-repeat;
+}
+.downloadbutton{
+	width: 35%;
+        height: 30px;
+        margin-left: 5%;
+        border-radius: 5px;
+        background-color: #D4EEF2;
+	background-image: url(download.jpg);
+	background-repeat: no-repeat;
+}
+.a{
+	text-decoration: none;
+}
+

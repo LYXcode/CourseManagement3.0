@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+ .lightbox{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            z-index: 7;
+            opacity: 0.3;
+            display: block;
+            background-color: rgb(0, 0, 0);
+            display: none;
+        }
+		.pop{
+			display: none;}
+        .pop,iframe{
+            position: absolute;
+            left: 50%;
+            top:0;
+            width: 60%;
+            height: 100%;
+            margin-left: -446.5px;
+            z-index: 9;
+        }
+		.pdfContainer{
+			width: 80%;
+			float: left;
+			margin-top: 50px;
+			height: 90%
+		}
+			.table{
+	margin-left: 50px;
+	margin-top: 80px;
+				margin-right: 50px;
+				
+}
+	.table tr{
+	height: 25px;
+	}
+		.grade{
+			float:right;
+			margin-right: 10%;
+			margin-top: 15px;
+			
+			border: 2px solid rgba(0,0,0,1.00);
+			height: 600px;
+			
+		}
+.close{
+
+            position: absolute;
+            right: -90px;
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+			
+        }

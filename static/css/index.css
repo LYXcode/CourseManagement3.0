@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+height:100%;
+margin:0; 
+background-image:url("../../img/back.png");
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+.GreyPanel
+{
+width: 634px;
+height: 934px;
+background-color: #262626;
+opacity:0.4;
+  filter:alpha(opacity=40); 
+  position:absolute;
+  left:766px;
+  top:0px;
+}
+
+.ClassManage
+{
+ position:absolute;
+  left:852px;
+  top:119px;
+font-size: 72px;
+font-family:"YouYuan";
+font-weight:bold;
+color:white;
+}
+
+
+.LoginWayOne
+{
+position:absolute;
+  left:981px;
+  top:264px;
+ width: 122px;
+ height: 48px;
+background-color:#00FFFF;
+font-size:14px;
+line-height:48px;
+text-align:center;
+font-family:"Arial";
+}
+
+
+.LoginWayTwo
+{
+position:absolute;
+  left:1103px;
+  top:264px;
+ width: 82px;
+ height: 48px;
+background-color:#FFFFFF;
+font-size:14px;
+line-height:48px;
+text-align:center;
+font-family:"Arial";
+}
+
+
+.UserName
+{
+position:absolute;
+  left:855px;
+  top:368px;
+font-size:24px;
+font-weight:bold;
+font-family:"Arial";
+color:white;
+}
+
+
+.UserNameField
+{
+position:absolute;
+  left:980px;
+  top:368px;
+ width: 303px;
+ height: 31px;
+}
+
+
+.Password
+{
+position:absolute;
+  left:855px;
+  top:434px;
+font-size:24px;
+font-weight:bold;
+font-family:"Arial";
+color:white;
+}
+
+.PasswordField
+{
+position:absolute;
+  left:980px;
+  top:434px;
+ width: 303px;
+ height: 31px;
+}
+
+
+.Login
+{
+position:absolute;
+  left:981px;
+  top:531px;
+background-color:#00FFFF;
+color:#0;
+width: 298px;
+ height: 56px;
+font-size:24px;
+text-align:center;
+}
+
+
+.Enroll
+{
+position:absolute;
+  left:1218px;
+  top:659px;
+font-size:24px;
+}
