@@ -138,7 +138,7 @@ public class CourseController {
 	@ResponseBody
 	public Object createClassByCourseId(@PathVariable int courseId,@RequestBody Class cla) throws JsonProcessingException{
 		cla.setId(6);
-		System.out.println(cla.getPro().geta());
+		System.out.println(cla.getName());
 		return cla;
 		}
 	/**
@@ -165,9 +165,13 @@ public class CourseController {
 	 * @return String 返回Json数据
 	 * @throws JsonProcessingException Json处理异常
 	 */
-	@RequestMapping(value="/{courseId}",method=POST)
-	public String createSeminarByCourseId(Integer courseId) throws JsonProcessingException{
+	@RequestMapping(value="/{courseId}/seminar",method=POST)
+	@ResponseBody
+	public Object createSeminarByCourseId(@PathVariable int courseId,@RequestBody Seminar seminar) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
-		return "";
+	    seminar.setId(8);
+	    System.out.println(seminar.getName());
+	    System.out.println(seminar.getGroupingMethod());
+		return seminar;
 		}
 }

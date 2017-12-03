@@ -23,13 +23,14 @@ function onClick(){
     	contentType:"application/json",
     	data:JSON.stringify({
     		"name":$("#className").val(),
-    		"site":site,
-    		"time":time,
     		"c":$("#c").val(),
     		"b":$("#b").val(),
     		"a":$("#a").val(),
     		"report":$("#presentation").val(),
     		"presentation":$("#report").val()
-    	})
+    	}),
+    	success:function(data){
+    		window.location.href="../../course/teacher_course_index.html?id="+courseid;
+    	}
     });
 }

@@ -35,5 +35,12 @@ function addClass(){
 }
 
 function addSeminar(){
-	window.location.href="../../teacher/course/semiar/teacher_seminar_new.html?id="+courseid;
+	window.location.href="../../teacher/course/seminar/teacher_seminar_new.html?id="+courseid;
 }
+
+$(function(){
+	$('.classItem').click(function(){
+		window.loction.href="../../course/class/teacher_class_index?id="+courseid;
+	});
+});
+

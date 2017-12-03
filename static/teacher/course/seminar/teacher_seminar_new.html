@@ -3,8 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>创建讨论课</title>
-    <link  href="../../../css/teacher_course_seminar_new.css" rel="stylesheet" type="text/css"/>
-    
+    <link  href="../../../../css/teacher_seminar_new.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../../../js/teacher_seminar_new.js"></script>
 </head>
 <body>
     	<div class="top">
@@ -14,9 +15,9 @@
         		课堂管理系统
            </div>
               <div class="icon">
-        		<img src="../../../img/home.png">首页
-        		<img src="../../../img/help.png">帮助
-        		<img src="../../../img/exit.png">退出
+        		<img src="../../../../img/home.png">首页
+        		<img src="../../../../img/help.png">帮助
+        		<img src="../../../../img/exit.png">退出
         	</div>
              
        
@@ -35,23 +36,23 @@
                     <div class="line"></div>
                     
                <form class="itemBody">
-               <div class="item"><div class="itemName">讨论课名称*：<input class="bigInput" type="text"/></div></div>
+               <div class="item"><div class="itemName">讨论课名称*：<input class="bigInput" type="text" id="name"/></div></div>
           
-               <div class="item"><div class="itemName">讨论课说明：<textarea class="textareaStyle" ></textarea></div></div>
+               <div class="item"><div class="itemName">讨论课说明：<textarea class="textareaStyle" id="description"></textarea></div></div>
                
-               <div class="item"><div class="itemName">分组方式*：<select class="smallSelect"><option>随机分组</option><option>固定分组</option></select></div></div>
+               <div class="item"><div class="itemName">分组方式*：<select class="smallSelect" id="groupingMethod"><option>随机分组</option><option>固定分组</option></select></div></div>
                
-               <div class="item"><div class="itemName">开始时间*：<input class="inputDate" type="date" value=""/>&nbsp;结束时间*：<input class="inputDate" type="date"/></div></div>
+               <div class="item"><div class="itemName">开始时间*：<input class="inputDate" id="startTime" type="date" value=""/>&nbsp;结束时间*：<input class="inputDate" id="endTime" type="date"/></div></div>
                
                <div class="item"><div class="itemName">评分规则*：</div></div>
                
-<div class="item"><div class="itemName">讨论课分数占比：<input class="smallInput" type="text" value="0-100"/>报告分数占比：<input class="smallInput" type="text" value="0-100"/></div></div> 
+<div class="item"><div class="itemName">讨论课分数占比：<input class="smallInput" id="presentation" type="text" value="0-100"/>报告分数占比：<input class="smallInput" id="report" type="text" value="0-100"/></div></div> 
 
-<div class="item"><div class="itemName">5分占比:<input class="smallInput" type="text" value="0-100"/>&nbsp;4分占比：<input class="smallInput" type="text" value="0-100"/>&nbsp;3分占比：<input class="smallInput" type="text" value="0-100"/></div></div>  
+<div class="item"><div class="itemName">5分占比:<input class="smallInput" id="a" type="text" value="20"/>&nbsp;4分占比：<input class="smallInput" id="b" type="text" value="50"/>&nbsp;3分占比：<input class="smallInput" id="c" type="text" value="30"/></div></div>  
 
 <br/>  
     
-<div class="item"><input class="bottomButton" type="submit"/><input class="bottomButton" type="reset"/></div>  
+<div class="item"><input class="bottomButton" type="button" value="提交" onclick="onClick()"/><input class="bottomButton" type="reset"/></div>  
                
                </form> 
                   

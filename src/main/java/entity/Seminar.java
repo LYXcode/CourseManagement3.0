@@ -9,6 +9,7 @@ public class Seminar {
     String groupingMethod;
     Date startTime;
     Date endTime;
+    Proportions pro;
     public int getId() {
         return id;
     }
@@ -44,5 +45,11 @@ public class Seminar {
     }
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
+    }
+    public Proportions getPro() {
+        return pro;
+    }
+    public void setPro(Proportions pro) {
+        this.pro = pro;
     }
 }
