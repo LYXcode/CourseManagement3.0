@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>新讨论课</title>
-<link href="../../../../css/teacher_course_seminar_index.css" rel="stylesheet" type="text/css">
+<link href="../../../../css/teacher_seminar_index.css" rel="stylesheet" type="text/css">
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="../../../../js/teacher_seminar_index.js"></script>
 </head>
@@ -28,7 +28,7 @@
 			</div>
 			<div class="content">
 				<div class="title">讨论课1</div>
-				<div class="returnButton">返回上一页</div>
+				<div class="returnButton" onclick="onReturn()">返回上一页</div>
 				<hr class="line"><br><br>
 					<table class="table">
 						<tr><td>讨论课名称*：</td><td>讨论课1</td></tr>
@@ -37,9 +37,9 @@
 						<tr><td>开始时间*&nbsp;：</td> <td>11/10/2017</td></tr>
 						<tr><td>结束时间*&nbsp;：</td><td>17/11/2017</td></tr>
 					</table><br>
-				<button class="bottomButton2">评分</button>
-				<button class="bottomButton1">修改</button>
-				<button class="bottomButton1">删除讨论课</button><br><br>
+				<button class="bottomButton2" onclick="onScore()">评分</button>
+				<button class="bottomButton1" onclick="onUpdate()">修改</button>
+				<button class="bottomButton1" onclick="onDelete()">删除讨论课</button><br><br>
 				<hr class="lineshort">
 				<h1 class="courseName">Topic</h1><br>
 				<button class="bottomButton">TopicA</button>

@@ -2,7 +2,9 @@ package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -40,9 +42,8 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}",method=GET)
-    public String getClassInfoById(int classId) throws JsonProcessingException{
-        
-        return mapper.writeValueAsString(obj);
+    public void getClassInfoById(@PathVariable int classId) throws JsonProcessingException{        
+        System.out.println(classId);
     }
     
     /**
@@ -51,9 +52,10 @@ public class ClassController {
      * @return 
      */
     @RequestMapping(value="/{classId}",method=DELETE)
-    public String deleteClassById(int classId){
+    @ResponseBody
+    public void deleteClassById(@PathVariable int classId){
         //删除操作
-        return "";
+        System.out.println(classId);
     }
     
     /**
@@ -62,8 +64,9 @@ public class ClassController {
      * @return 
      */
     @RequestMapping(value="/{classId}",method=PUT)
-    public String editClassInfo(int classId){
-        return "";
+    @ResponseBody
+    public void editClassInfo(@PathVariable int classId){
+        System.out.println("修改"+classId);
     }
     
     /**

@@ -4,6 +4,7 @@ function getQueryString(name) {
 	if (r != null) return unescape(r[2]); return null; 
 	};
 var courseid=getQueryString("id");
+var classid=2;
 $.ajax({
 	url:"/course/"+courseid,
 	type:"GET",
@@ -40,7 +41,12 @@ function addSeminar(){
 
 $(function(){
 	$('.classItem').click(function(){
-		window.loction.href="../../course/class/teacher_class_index?id="+courseid;
+		window.location.href="../../teacher/course/class/teacher_class_index.html?id="+classid;
 	});
 });
 
+$(function(){
+	$('.seminarItem').click(function(){
+		window.location.href="../../teacher/course/seminar/teacher_seminar_index.html?id="+classid;
+	});
+});

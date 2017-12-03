@@ -3,8 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>修改班级</title>
-   <link href="../../../css/teacher_course_class_edit.css" rel="stylesheet" type="text/css"/>
-   
+   <link href="../../../../css/teacher_class_edit.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../../../js/teacher_class_edit.js"></script>
 </head>
 <body>
     
@@ -13,9 +14,9 @@
             课堂管理系统
           </div>
           <div class="icon">
-            <img src="../../../img/home.png">首页
-            <img src="../../../img/help.png">帮助
-            <img src="../../../img/exit.png">退出
+            <img src="../../../../img/home.png">首页
+            <img src="../../../../img/help.png">帮助
+            <img src="../../../../img/exit.png">退出
           </div>
           <div class="clear"></div>
         </div>
@@ -33,11 +34,11 @@
                     <div class="itemBody">
                         <div class="item">
                           <label class="itemName">班级名称:</label>
-                          <input type="text" name="className" class="bigInput" value="XXX">
+                          <input type="text" id="name" name="className" class="bigInput" value="XXX">
                         </div>
                         <div class="item">
                           <label class="itemName">班级代号:</label>
-                          <input type="text" name="classNickname" class="bigInput" value="XXX">
+                          <input type="text" id="site" name="classNickname" class="bigInput" value="XXX">
                         </div>
                         <div class="item">
                           <label class="itemName">上课时间:</label>
@@ -67,17 +68,17 @@ function showHide(){
                         <div class="item">
                           <label class="itemName">评分规则:</label>
                           <label class="itemName">讨论课分数占比</label>
-                          <input type="text" name="seminarGrade" class="smallInput" value="XXX">
+                          <input type="text" id="presentation" name="seminarGrade" class="smallInput" value="XXX">
                           <label class="itemName">报告分数占比</label>
-                          <input type="text" name="seminarGrade" class="smallInput" value="XXX">
+                          <input type="text" id="report" name="seminarGrade" class="smallInput" value="XXX">
                         </div>
                         <div class="item" style="margin-left: 18%">
                           <label class="itemName">5分占比</label>
-                          <input type="text" name="seminarGrade" class="smallInput" value="XXX">
+                          <input type="text" id="a" name="seminarGrade" class="smallInput" value="XXX">
                           <label class="itemName">4分占比</label>
-                          <input type="text" name="seminarGrade" class="smallInput" value="XXX">
+                          <input type="text" id="b" name="seminarGrade" class="smallInput" value="XXX">
                           <label class="itemName">3分占比</label>
-                          <input type="text" name="seminarGrade" class="smallInput" value="XXX">
+                          <input type="text" id="c" name="seminarGrade" class="smallInput" value="XXX">
                         </div>
                         <div class="item">
                           <label class="itemName">导入学生名单:</label>
@@ -85,7 +86,7 @@ function showHide(){
                           <button class="selectFile">选择文件</button>
                         </div>
                         <div class="item">
-                          <button class="submit">提交</button>
+                          <button class="submit" onclick="onClick()">提交</button>
                           <button class="reset">重置</button>
                           <div class="clear"></div>
                         </div>
