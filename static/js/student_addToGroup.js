@@ -1,15 +1,19 @@
 // JavaScript Document
+function getQueryString(name) { 
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+    var r = window.location.search.substr(1).match(reg); 
+    if (r != null) return unescape(r[2]); return null; 
+    };
 
-
-
+var groupId=getQueryString("id");
+var classId=1;
        function onClick(){
             	$.ajax({
-            		url:'/class/{classId}/student?nameBeginWith=张',
+            		url:'/class/'+classId+'/student?nameBeginWith=张',
             		type:'GET',
-                    success:function(data){
-                      $('.number').html(data.number);
-					   $('.name').html(data.name);
-                      
+                    success:function(userData){
+                      $('.number').html(userData.number);
+					   $('.name').html(userData.name);
                        }
             	});
             }
@@ -17,21 +21,23 @@
 			
        function Add(){
             	$.ajax({
-            		url:'/me',
-            		type:'GET',
-                    success:function(data){
-                     
-                       }
+            		url:'/group/'+groupId+'/add',
+            		type:'PUT',
+					contentType:"application/json",
+					data:JSON.stringify({
+						"id":247
+					})
             	});
             }
 			
 					
        function Alt(){
             	$.ajax({
-            		url:'/me',
-            		type:'GET',
-                    success:function(data){
-                     
-                       }
+            		url:'/group/'+groupId+'/remove',
+            		type:'PUT',
+					contentType:"application/json",
+					data:JSON.stringify({
+						"id":247
+					})
             	});
             }

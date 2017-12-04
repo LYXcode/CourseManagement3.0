@@ -1,23 +1,33 @@
 // JavaScript Document
+function getQueryString(name) { 
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+    var r = window.location.search.substr(1).match(reg); 
+    if (r != null) return unescape(r[2]); return null; 
+    };
 
+var courseId=getQueryString("id");
 $.ajax({
-    url:'/course/{courseId}',
+    url:'/course/'+courseId,
     type:'GET',
-    success:function(data){
-       $('#courseInfo').html(data.discription);
-	   $('#course').html(data.name);
+    success:function(courseData){
+       $('#courseInfo').html(courseData.discription);
+	   $('#courseIn').html(courseData.name);
 	
        }
 });
 $.ajax({
-    url:'/course/{courseId}/seminar',
+    url:'/course/'+courseId+'/seminar',
     type:'GET',
-    success:function(data){
-       $('#name').html(data.name);
+    success:function(seminarData){
+       $('#name').html(seminarData.name);
        }
 });
 
 function onClick()
 {
 	window.location.href="student_group.html";
-	}
+}
+function Seminar()
+{
+	window.location.href="student_group.html";
+}

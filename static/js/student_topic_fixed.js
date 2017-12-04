@@ -16,9 +16,6 @@ $.ajax({
        }
 });
 
-function onClick(){
-	
-}
 function uploadReport(){
 	
 }
@@ -29,4 +26,5 @@ function checkScore()
 	
 function jumpToTopic()
 {
+	window.location.href="student_viewTopic_fixed.html";
 	}

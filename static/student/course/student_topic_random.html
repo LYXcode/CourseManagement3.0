@@ -34,7 +34,7 @@
             <div class="content">
                 <div class="block">
                     <div class="title">讨论课1</div>
-                    <div class="returnButton">返回上一页</div>
+                    <div class="returnButton" onclick="javascript:history.back(-1);">返回上一页</div>
                     <div class="line"></div>
                     <div class="itemBody">
                         <div class="item">
@@ -71,7 +71,7 @@
                     <div class="line"></div>
 					<div class="blockBody">
                         <div class="smallblock"><div class="blockFont" id="topic0" onClick="jumpToTopic()">话题A</div></div>
-                        <div class="smallblock"><div class="blockFont">话题B</div></div>
+                        <div class="smallblock"><div class="blockFont" id="topic0" onClick="jumpToTopic()">话题B</div></div>
 					</div>
                     <div class="item">
                         <button class="uploadbutton" onClick="uploadReport()">上传报告</button>
