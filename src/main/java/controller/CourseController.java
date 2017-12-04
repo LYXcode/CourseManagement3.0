@@ -1,13 +1,14 @@
 package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
-
 import java.util.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import entity.*;
 import entity.Class;
@@ -30,26 +31,26 @@ public class CourseController {
      */
 	@RequestMapping(method=GET)
 	@ResponseBody
-	public Object getUserCourses() throws JsonProcessingException{
-	    List<Course> courses=new ArrayList<Course>();
-	    
-	    Calendar calendar=Calendar.getInstance();
-	    Date date=calendar.getTime();
-	    
+	public Object getCourses() throws JsonProcessingException{
+	    List<Course> courses=new ArrayList<Course>(); 
 	    Course course1=new Course();
+	    course1.setId(9);
 		course1.setName("OOAD");
-		course1.setStartTime(date);
-		course1.setEndTime(date);
+		course1.setNumClass(3);
+		course1.setNumStudent(30);
+		course1.setStartTime("开始时间");
+		course1.setEndTime("结束时间");
 		
 		courses.add(course1);
 		
 	    Course course2=new Course();
-	    course2.setName("OOAD");
-	    course2.setStartTime(date);
-	    course2.setEndTime(date);
+	    course2.setId(7);
+	    course2.setName("J2EE");
+	    course2.setStartTime("开始时间");
+	    course2.setEndTime("结束时间");
 
 	    courses.add(course2);
-	    return course1;
+	    return courses;
 	}
 	/**
 	 * 创建课程
@@ -59,9 +60,11 @@ public class CourseController {
 	 */
 	@RequestMapping(method=POST)
 	@ResponseBody
-	public Object createCourse(@RequestBody Course course) throws JsonProcessingException{
+	@ResponseStatus(value=HttpStatus.CREATED)
+	public Object newCourse(@RequestBody String JsonString) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
 	    Course cour=new Course();
+	    cour.setId(9);
 		return cour;
 	}
 	/**
@@ -73,11 +76,14 @@ public class CourseController {
 	 */
 	@RequestMapping(value="/{courseId}",method=GET)
 	@ResponseBody
-	public Object getCourseById(@PathVariable String courseId) throws JsonProcessingException{
-		Course course=new Course();
-		course.setName("OOAD");
-		course.setDescription("OOAD是门……");
-		return course;
+	public Object getCourse(@PathVariable String courseId) throws JsonProcessingException{
+		CourseDetail courseDetail=new CourseDetail();
+		courseDetail.setId(9);
+		courseDetail.setTeacherEmail("XXX@XXX.com");
+		courseDetail.setTeacherName("XXX老师");
+		courseDetail.setName("OOAD");
+		courseDetail.setDescription("OOAD是门……");
+		return courseDetail;
 	}
 	/**
 	 * 修改课程
@@ -88,9 +94,9 @@ public class CourseController {
 	 * @throws JsonProcessingException Json处理异常
 	 */
 	@RequestMapping(value="/{courseId}",method=PUT)
-	public String updateCourse(Integer courseId,String request) throws JsonProcessingException{
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public void updateCourses(@PathVariable Integer courseId,@RequestBody String JsonString) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
-		return "";
 	}
 	/**
 	 * 按ID删除课程
@@ -100,11 +106,11 @@ public class CourseController {
 	 * @throws JsonProcessingException Json处理异常
 	 */
 	@RequestMapping(value="/{courseId:\\d+}",method=DELETE)
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	@ResponseBody
-	public String deleteCourseById(@PathVariable int courseId) throws JsonProcessingException{
+	public void deleteCourses(@PathVariable int courseId) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
 	    System.out.println(courseId);
-		return"";
 	}
 	/**
 	 * 按ID获取课程的班级列表
@@ -114,12 +120,15 @@ public class CourseController {
 	 * @throws JsonProcessingException Json处理异常
 	 */
 	@RequestMapping(value="/{courseId}/class",method=GET)
-	public Object getClassesByCourseId(@PathVariable String courseId) throws JsonProcessingException{
+	@ResponseBody
+	public Object selectClasses(@PathVariable String courseId) throws JsonProcessingException{
 		System.out.println("c");
+		List<Class> classes=new ArrayList<Class>();
 	    Class cla=new Class();
 		cla.setId(6);
 		cla.setName("周三一二节");
-	    return cla;
+		classes.add(cla);
+	    return classes;
 		}
 	/**
 	 * 在指定ID的课程创建班级
@@ -131,10 +140,11 @@ public class CourseController {
 	 */
 	@RequestMapping(value="/{courseId}/class",method=POST)
 	@ResponseBody
-	public Object createClassByCourseId(@PathVariable int courseId,@RequestBody Class cla) throws JsonProcessingException{
-		cla.setId(6);
-		System.out.println(cla.getName());
-		return cla;
+	@ResponseStatus(value=HttpStatus.CREATED)
+	public Object createClass(@PathVariable int courseId,@RequestBody String JsonString) throws JsonProcessingException{
+	        Class cla=new Class();
+	        cla.setId(10);
+	        return cla;
 		}
 	/**
 	 * 按ID获取课程的讨论课
@@ -145,13 +155,18 @@ public class CourseController {
 	 */
 	@RequestMapping(value="/{courseId}/seminar",method=GET)
 	@ResponseBody
-	public Object getSeminarsByCourseId(@PathVariable int courseId) throws JsonProcessingException{
+	public Object selectSeminars(@PathVariable int courseId) throws JsonProcessingException{
 	    System.out.println("s");
+	    List<Seminar> seminar=new ArrayList<Seminar>();
 	    Seminar se=new Seminar();
 		se.setId(8);
 		se.setName("界面原型设计");
 		se.setDescription("完成相应的界面设计……");
-		return se;
+		se.setGroupingMethod(GroupingEnum.random);
+		se.setStartTime("开始时间");
+		se.setEndTime("结束时间");
+		seminar.add(se);
+		return seminar;
 		}
 	/**
 	 * 在指定ID的课程创建讨论课
@@ -162,11 +177,49 @@ public class CourseController {
 	 */
 	@RequestMapping(value="/{courseId}/seminar",method=POST)
 	@ResponseBody
-	public Object createSeminarByCourseId(@PathVariable int courseId,@RequestBody Seminar seminar) throws JsonProcessingException{
+	@ResponseStatus(value=HttpStatus.CREATED)
+	public Object createSeminar(@PathVariable int courseId,@RequestBody String JsonString) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
+	    Seminar seminar=new Seminar();
 	    seminar.setId(8);
-	    System.out.println(seminar.getName());
-	    System.out.println(seminar.getGroupingMethod());
+	    //System.out.println(seminar.getName());
+	    //System.out.println(seminar.getGroupingMethod());
 		return seminar;
 		}
+	
+	 /**
+     * 获得正在进行的讨论课
+     * @author 吕柏翰
+     * @param courseId 待创建讨论课的课程的ID
+     * @return String 返回Json数据
+     * @throws JsonProcessingException Json处理异常
+     */
+    @RequestMapping(value="/{courseId}/seminar/current",method=GET)
+    @ResponseBody
+    public Object getCurrentSeminar(@PathVariable int courseId) throws JsonProcessingException{
+        SeminarClasses se=new SeminarClasses();
+        Class[] classes=new Class[5];
+        se.setId(8);
+        se.setName("XXXX");
+        se.setGroupingMethod(GroupingEnum.random);
+        se.setStartTime(new Date().toString());
+        se.setEndTime(new Date().toString());
+        se.setClasses(classes);
+        return se;
+        }
+	
+    @RequestMapping(value="/{courseId}/grade")
+    @ResponseBody
+    public Object getSeminarGrade(@PathVariable int courseId){
+        List<SeminarGradeDetail> grades=new ArrayList<SeminarGradeDetail>();
+        SeminarGradeDetail grade=new SeminarGradeDetail();
+        grade.setSeminarName("XXX讨论课");
+        grade.setGroupName("XXX小组");
+        grade.setLeaderName("XXX组长");
+        grade.setPresentationGrade(89);
+        grade.setReportGrade(70);
+        grade.setGrade(89);
+        grades.add(grade);
+        return grades;
+    }
 }

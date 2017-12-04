@@ -1,6 +1,5 @@
 package entity;
 
-import java.util.Date;
 
 /**
  * Course class
@@ -14,8 +13,8 @@ public class Course {
 	String name;
 	int numClass;
 	int numStudent;
-	Date startTime;
-	Date endTime;
+	String startTime;
+	String endTime;
 	String description;
 	Proportions proportions;
 	public int getId() {
@@ -48,16 +47,16 @@ public class Course {
 	public void setNumStudent(int numStudent) {
 		this.numStudent = numStudent;
 	}
-	public Date getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-	public Date getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Date endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 	public String getDescription() {

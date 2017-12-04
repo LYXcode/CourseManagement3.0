@@ -1,6 +1,9 @@
 package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 import org.springframework.http.HttpStatus;
@@ -122,8 +125,8 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}/student",method=GET)
-    @ResponseBody//@PathVariable int classId
-    public Object getStudentList(@PathVariable int classId) throws JsonProcessingException{
+    @ResponseBody
+    public Object getStudentList(@PathVariable Integer classId) throws JsonProcessingException{
         //取学生列表
         List<User> useres=new ArrayList<User>();
         User user=new User();
@@ -140,14 +143,16 @@ public class ClassController {
      * @param classId
      * @return
      * @throws JsonProcessingException
+     * @throws MalformedURLException 
      */
     @RequestMapping(value="/{classId}/student",method=POST)
     @ResponseStatus(value=HttpStatus.CREATED)
     @ResponseBody
-    public Object chooseClass(@PathVariable Integer classId) throws JsonProcessingException{
-        System.out.println("选课了");
-        Class cla=new Class();
-        return cla;
+    public Object chooseClass(Integer id,@PathVariable Integer classId) throws JsonProcessingException, MalformedURLException{
+        //System.out.println("选课了");
+        URL url=new URL("https://www.baidu.com/");
+        //String url="/class/34/student/2757";
+        return url;
     }
     
     /**
@@ -212,7 +217,7 @@ public class ClassController {
         users[0].setId(8);
         users[0].setName("用户XXX");
         users[0].setNumber("1876545……");
-        group.setLeader(users[0]);
+        group.setLeader(users);
         group.setMembers(users);
         return group;
     }

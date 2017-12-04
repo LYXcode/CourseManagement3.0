@@ -1,15 +1,16 @@
 package controller;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
-import org.springframework.stereotype.Controller;
+import java.util.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import entity.Topic;
+import entity.*;
 
 /**
  * 
@@ -19,12 +20,9 @@ import entity.Topic;
  * @date 2017/11/28
  * 
  */
-@Controller
+@RestController
 @RequestMapping("/topic")
-public class TopicController {
-    ObjectMapper mapper=new ObjectMapper();
-    Object obj;
-    
+public class TopicController {    
     /**
      * 按ID获取讨论课话题
      * @author 艾星
@@ -34,33 +32,41 @@ public class TopicController {
      */
     @RequestMapping(value="/{topicId}",method=GET)
     @ResponseBody
-    public Object getTopicById(@PathVariable int topicId,@RequestBody Topic topic) throws JsonProcessingException{
-        System.out.println(topic.getName());
+    public Object getTopicById(@PathVariable int topicId) throws JsonProcessingException{
+        Topic topic=new Topic();
+        topic.setId(6);
+        topic.setSerial("XXXX");
+        topic.setDescription("该题目……");
+        topic.setGroupLimit(10);
+        topic.setGroupMemberLimit(5);
+        topic.setGroupLeft(3);
         return topic;
     }
     
     /**
-     * 按Id修改讨论课话题
+     * 按Id修修改话题
      * @author 艾星
      * @param topicId
      * @return
      */
     @RequestMapping(value="/{topicId}",method=PUT)
     @ResponseBody
-    public void deleteTopicById(@PathVariable int topicId){
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    public void editTopicById(@PathVariable int topicId,@RequestBody String JsonString){
         
     }
     
     /**
-     * 按ID修改话题
+     * 按Id修删除话题
      * @author 艾星
      * @param topicId
      * @return
-     * @throws JsonProcessingException 
      */
-    @RequestMapping(value="/{topicId}/grade",method=PUT)
-    public String editTopic(int topicId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @RequestMapping(value="/{topicId}",method=DELETE)
+    @ResponseBody
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    public void deleteTopicById(@PathVariable int topicId){
+        
     }
     
     /**
@@ -71,34 +77,14 @@ public class TopicController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{topicId}/group",method=GET)
-    public String getGroupByTopic(int topicId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj); 
+    //@ResponseBody
+    public Object getGroupByTopic(@PathVariable int topicId) throws JsonProcessingException{
+        List<Group> groups=new ArrayList<Group>();
+        Group group=new Group();
+        group.setId(6);
+        group.setName("XXX小组");
+        groups.add(group);
+        return groups;
     }
-    
-    /**
-     * 小组按ID选择话题
-     * @author 艾星
-     * @param topicId
-     * @return
-     * @throws JsonProcessingException 
-     */
-    @RequestMapping(value="/{topicId}/group",method=POST)
-    public String groupSelectTopic(int topicId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
-    }
-    
-    /**
-     * 小组按ID取消选择话题
-     * @author 艾星
-     * @param topicId
-     * @param groupId
-     * @return
-     * @throws JsonProcessingException 
-     */
-    @RequestMapping(value="/{topicId}/group/{groupId}",method=DELETE)
-    public String groupCancelTopic(int topicId,int groupId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
-    }
-    
     
 }

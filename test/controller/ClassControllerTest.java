@@ -1,19 +1,17 @@
-package controller;
+﻿package controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import controller.ClassController;
-
 /**
  * URL-pattern:prefix="/class"
  * @author ZDD、Huhui
@@ -78,7 +76,7 @@ public class ClassControllerTest {
     public void testUpdateClass() throws Exception {
         mvc.perform(put("/class/{classId}", 1)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                 .content("{\"name\": \"周三1-2节\", \"numStudent\": 120, \"time\": \"周三12节、周一34节\", \"site\": \"海韵201、公寓405\", \"calling\": -1, \"roster\": \"/roster/周三12班.xlsx\", \"proportions\": {\"report\": 50, \"presentation\": 50, \"3\": 20, \"4\": 60, \"5\": 20 }}".getBytes())
+                 .content("{\"name\": \"周三1-2节\", \"numStudent\": 120, \"time\": \"周三12节、周一34节\", \"site\": \"海韵201、公寓405\", \"calling\": -1, \"roster\": \"/roster/周三12班.xlsx\", \"proportions\": {\"report\": 50, \"presentation\": 50, \"c\": 20, \"b\": 60, \"a\": 20 }}".getBytes())
                  )
         .andExpect(status().isNoContent())
         .andDo(print());
@@ -95,7 +93,6 @@ public class ClassControllerTest {
         mvc.perform(delete("/class/{classId}", 1))
         .andExpect(status().isNoContent())
         .andDo(print());
-       
     }
     
     /**
@@ -106,14 +103,14 @@ public class ClassControllerTest {
      */   
     @Test
     public void testGetStudentList() throws Exception {
-        mvc.perform(get("/class/{classId}/student"))
+        mvc.perform(get("/class/1/student"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$").isArray())
         .andExpect(jsonPath("$[0]").exists())
         .andExpect(jsonPath("$[0].id").isNumber())
         .andExpect(jsonPath("$[0].name").isString())
         .andExpect(jsonPath("$[0].number").isString())
-        .andDo(print());   
+        .andDo(print());        
     }
     
     /**
@@ -129,7 +126,7 @@ public class ClassControllerTest {
                 .content("{\"id\": 233}".getBytes()))
         .andExpect(status().isCreated())
         .andExpect(jsonPath("$.url").isString())
-        .andDo(print());
+        .andDo(print());        
     }
     
     /**
@@ -174,7 +171,7 @@ public class ClassControllerTest {
     @Test
     public void resignLeader() throws Exception {
         mvc
-                .perform(put("/class/{classId}/classgroup/resign")
+                .perform(put("/class/1/classgroup/resign")
                 		.contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content("{\"id\": 247}".getBytes())
                 		) 
@@ -192,7 +189,7 @@ public class ClassControllerTest {
     @Test
     public void assignLeader() throws Exception {
         mvc
-                .perform(put("/class/{classId}/classgroup/assign")
+                .perform(put("/class/1/classgroup/assign")
                 		.contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content("{\"id\": 247}".getBytes())
                 		) 
@@ -210,7 +207,7 @@ public class ClassControllerTest {
     @Test
     public void addMember() throws Exception {
         mvc
-                .perform(put("/class/{classId}/classgroup/add")
+                .perform(put("/class/1/classgroup/add")
                 		.contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content("{\"id\": 247}".getBytes())
                 		) 
@@ -228,7 +225,7 @@ public class ClassControllerTest {
     @Test
     public void removeMember() throws Exception {
         mvc
-                .perform(put("/class/{classId}/classgroup/remove")
+                .perform(put("/class/1/classgroup/remove")
                 		.contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content("{\"id\": 247}".getBytes())
                 		) 

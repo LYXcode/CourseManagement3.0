@@ -9,7 +9,7 @@ package entity;
 public class Group {
 	int id;
 	String name;
-	User leader;
+	User[] leader;
 	User[] members;
 	Topic[] topics;
 	String report;
@@ -26,10 +26,10 @@ public class Group {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public User getLeader() {
+	public User[] getLeader() {
 		return leader;
 	}
-	public void setLeader(User leader) {
+	public void setLeader(User[] leader) {
 		this.leader = leader;
 	}
 	public User[] getMembers() {

@@ -1,11 +1,15 @@
 package controller;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import entity.Group;
 import entity.PresentationGrade;
 import entity.SeminarGrade;
@@ -21,9 +25,6 @@ import entity.User;
 @Controller
 @RequestMapping("/group")
 public class GroupController {
-    private ObjectMapper mapper=new ObjectMapper();
-    private Object obj;
-    
     /**
      * 按小组Id获得小组详情
      * @author 吕柏翰
@@ -32,6 +33,7 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}",method=GET)
+    @ResponseBody
     public Object getGroupInfoById(@PathVariable int groupId,boolean embedTopics,boolean embedGrade) throws JsonProcessingException{
     	Group group=new Group();
     	group.setId(28);
@@ -50,7 +52,7 @@ public class GroupController {
     	member2.setName("王五");
     	members[1]=member2;
     	
-    	group.setLeader(leader);
+    	//group.setLeader(leader);
     	group.setMembers(members);
     	
     	Topic[] topics=new Topic[1];
@@ -71,7 +73,9 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/resign",method=PUT)
-    public Object resignGroupLeader(@PathVariable int groupId,String request) throws JsonProcessingException{
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
+    public Object resignGroupLeader(@PathVariable int groupId, @RequestBody String request) throws JsonProcessingException{
     	return null;
     }
     /**
@@ -83,7 +87,9 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/assign",method=PUT)
-    public Object assignGroupLeader(@PathVariable int groupId,String request) throws JsonProcessingException{
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
+    public Object assignGroupLeader(@PathVariable int groupId,@RequestBody String request) throws JsonProcessingException{
     	return null;
     }
     /**
@@ -95,7 +101,9 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/add",method=PUT)
-    public Object addGroupMember(@PathVariable int groupId,String request) throws JsonProcessingException{
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
+    public Object addGroupMember(@PathVariable int groupId,@RequestBody String request) throws JsonProcessingException{
     	return null;
     }
     /**
@@ -107,7 +115,9 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/remove",method=PUT)
-    public Object removeGroupMember(@PathVariable int groupId,String request) throws JsonProcessingException{
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
+    public Object removeGroupMember(@PathVariable int groupId,@RequestBody String request) throws JsonProcessingException{
     	return null;
     }
     /**
@@ -119,7 +129,9 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/topic",method=POST)
-    public Object selectTopic(@PathVariable int groupId,String request) throws JsonProcessingException{
+    @ResponseStatus(value=HttpStatus.CREATED)
+    @ResponseBody
+    public Object selectTopic(@PathVariable int groupId,@RequestBody String request) throws JsonProcessingException{
     	return null;
     }
     /**
@@ -131,6 +143,8 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/topic/{topicId}",method=DELETE)
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
     public Object deselectTopic(@PathVariable int groupId,@PathVariable int topicId) throws JsonProcessingException{
     	return null;
     }
@@ -142,19 +156,15 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/grade",method=GET)
+    @ResponseBody
     public Object getGradeByGroupId(@PathVariable int groupId) throws JsonProcessingException{
     	SeminarGrade grade=new SeminarGrade();
     	PresentationGrade[] presentation=new PresentationGrade[2];
-    	PresentationGrade presentation1=new PresentationGrade();
-    	presentation1.setGrade(4);
-    	presentation1.setTopicId(257);
-    	presentation[0]=presentation1;
+    	presentation[0]=new PresentationGrade();
+    	presentation[0].setGrade(4);
+    	presentation[0].setTopicId(257);    	
     	
-    	PresentationGrade presentation2=new PresentationGrade();
-    	presentation2.setGrade(5);
-    	presentation2.setTopicId(258);
-    	presentation[1]=presentation2;
-    	
+    	grade.setPresentationGrade(presentation);
     	grade.setReportGrade(3);
     	grade.setGrade(4);
     	return grade;
@@ -168,7 +178,9 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/grade/report",method=PUT)
-    public Object finalGradeByGroupId(@PathVariable int groupId,String request) throws JsonProcessingException{
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
+    public Object finalGradeByGroupId(@PathVariable int groupId,@RequestBody String request) throws JsonProcessingException{
     	return null;
     }
     /**
@@ -181,7 +193,9 @@ public class GroupController {
 	 * @throws JsonProcessingException Json处理异常
      */
     @RequestMapping(value="/{groupId}/grade/presentation/{studentId}",method=PUT)
-    public Object submitGradeByGroupId(@PathVariable int groupId,@PathVariable int studentId,String request) throws JsonProcessingException{
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
+    public Object submitGradeByGroupId(@PathVariable int groupId,@PathVariable int studentId,@RequestBody String request) throws JsonProcessingException{
     	return null;
     }
 }

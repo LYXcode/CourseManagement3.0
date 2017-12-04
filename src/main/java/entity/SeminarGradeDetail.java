@@ -7,6 +7,7 @@ package entity;
  * @date 2017/12/03
  */
 public class SeminarGradeDetail {
+    String seminarName;
 	String groupName;
 	String leaderName;
 	int presentationGrade;
@@ -42,4 +43,10 @@ public class SeminarGradeDetail {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+    public String getSeminarName() {
+        return seminarName;
+    }
+    public void setSeminarName(String seminarName) {
+        this.seminarName = seminarName;
+    }
 }

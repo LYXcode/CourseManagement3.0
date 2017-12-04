@@ -1,7 +1,5 @@
 package entity;
 
-import java.util.Date;
-
 /**
  * SeminarClasses class
  * 讨论课课堂关系
@@ -12,8 +10,9 @@ public class SeminarClasses {
 	int id;
 	String name;
 	String courseName;
-	Date startTime;
-	Date endTime;
+    Enum<GroupingEnum> groupingMethod;
+    String startTime;
+    String endTime;
 	Class[] classes;
 	public int getId() {
 		return id;
@@ -33,17 +32,17 @@ public class SeminarClasses {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	public Date getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
+	public void setStartTime(String string) {
+		this.startTime = string;
 	}
-	public Date getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+	public void setEndTime(String string) {
+		this.endTime = string;
 	}
 	public Class[] getClasses() {
 		return classes;
@@ -51,4 +50,10 @@ public class SeminarClasses {
 	public void setClasses(Class[] classes) {
 		this.classes = classes;
 	}
+    public Enum<GroupingEnum> getGroupingMethod() {
+        return groupingMethod;
+    }
+    public void setGroupingMethod(Enum<GroupingEnum> groupingMethod) {
+        this.groupingMethod = groupingMethod;
+    }
 }

@@ -16,7 +16,7 @@ var classId=1;
 					   $('.name').html(userData.name);
                        }
             	});
-            }
+            };
 			
 			
        function Add(){
@@ -28,7 +28,7 @@ var classId=1;
 						"id":247
 					})
             	});
-            }
+            };
 			
 					
        function Alt(){

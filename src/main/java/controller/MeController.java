@@ -1,13 +1,11 @@
 package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entity.User;
 
@@ -17,8 +15,7 @@ import entity.User;
  * @author 吕柏翰
  * @date 2017/11/27
  */
-@Controller
-@RequestMapping("/")
+@RestController
 public class MeController {
 	/**
 	 * 获取当前用户
@@ -26,8 +23,6 @@ public class MeController {
 	 * @return String 返回Json数据
 	 * @throws JsonProcessingException Json处理异常
 	 */
-    private ObjectMapper mapper=new ObjectMapper();
-    private Object obj;
 	@RequestMapping(value="/me",method=GET)
 	@ResponseBody
 	public Object getCurrentUser() throws JsonProcessingException{
@@ -80,9 +75,9 @@ public class MeController {
 	 * @throws JsonProcessingException Json处理异常
 	 */
 	@RequestMapping(value="/signin",method=GET)
-	public String signinWechat(String code,String state,String successUrl) throws JsonProcessingException{
+	public void signinWechat(String code,String state,String successUrl) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
-		return mapper.writeValueAsString("{\"id\": 3486, \"type\": \"student\", \"name\": \"\u5F20\u4E09\", \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJPQTAwMDEiLCJpYXQiOjE0ODI2NTcyODQyMjF9.TeJpy936w610Vrrm+c3+RXouCA9k1AX0Bk8qURkYkdo=\"}");
+		//return mapper.writeValueAsString("{\"id\": 3486, \"type\": \"student\", \"name\": \"\u5F20\u4E09\", \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJPQTAwMDEiLCJpYXQiOjE0ODI2NTcyODQyMjF9.TeJpy936w610Vrrm+c3+RXouCA9k1AX0Bk8qURkYkdo=\"}");
 	}
 	
 	
