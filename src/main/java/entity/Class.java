@@ -14,8 +14,9 @@ public class Class {
     String site;
     int calling;
     String roster;
+    String courseName;
+    String courseTeacher;
     Proportions proportions;
-    Course course;
 	public int getId() {
 		return id;
 	}
@@ -64,10 +65,16 @@ public class Class {
 	public void setProportions(Proportions proportions) {
 		this.proportions = proportions;
 	}
-    public Course getCourse() {
-        return course;
+    public String getCourseName() {
+        return courseName;
     }
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+    public String getCourseTeacher() {
+        return courseTeacher;
+    }
+    public void setCourseTeacher(String courseTeacher) {
+        this.courseTeacher = courseTeacher;
     }
 }

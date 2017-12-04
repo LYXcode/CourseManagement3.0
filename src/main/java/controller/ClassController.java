@@ -2,6 +2,8 @@ package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import java.util.*;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,7 +18,7 @@ import entity.Class;
  * @date 2017/11/28
  *  
  */
-@Controller
+@RestController
 @RequestMapping("/class")
 public class ClassController {
     /**
@@ -27,12 +29,18 @@ public class ClassController {
      */
     @RequestMapping(method=GET)
     @ResponseBody
-    public Object getClassAll(@PathVariable String courseName,String teacherName) throws JsonProcessingException{
+    public Object getClassList(@PathVariable String courseName,String teacherName) throws JsonProcessingException{
         //从数据库中取出对应类obj
         System.out.println(courseName);
         List<Class> classes=new ArrayList<Class>();
         Class cla=new Class();
-        cla.setName("后台传来的班级");
+        cla.setId(5);
+        cla.setName("周三12节");
+        cla.setNumStudent(66);
+        cla.setTime("周三12节，单周周一56节");
+        cla.setSite("海韵206，公寓405");
+        cla.setCourseName("OOAD(后台)");
+        cla.setCourseTeacher("XX老师");
         classes.add(cla);
         return classes;
     }
@@ -45,8 +53,25 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}",method=GET)
-    public void getClassInfoById(@PathVariable int classId) throws JsonProcessingException{        
-        System.out.println(classId);
+    @ResponseBody
+    public Object getClass(@PathVariable int classId) throws JsonProcessingException{        
+        Class cla=new Class();
+        Proportions pro=new Proportions();
+        pro.seta(50);
+        pro.setb(30);
+        pro.setc(20);
+        pro.setReport(40);
+        pro.setPresentation(60);
+        
+        cla.setId(5);
+        cla.setName("周三12节");
+        cla.setNumStudent(66);
+        cla.setTime("周三12节，单周周一56节");
+        cla.setSite("海韵206，公寓405");
+        cla.setCalling(0);
+        cla.setRoster("D://XXX//XXX");
+        cla.setProportions(pro);
+        return cla;
     }
     
     /**
@@ -56,9 +81,9 @@ public class ClassController {
      */
     @RequestMapping(value="/{classId}",method=DELETE)
     @ResponseBody
-    public void deleteClassById(@PathVariable int classId){
-        //删除操作
-        System.out.println(classId);
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    public Object deleteClass(@PathVariable Integer classId){
+        return classId;
     }
     
     /**
@@ -67,9 +92,10 @@ public class ClassController {
      * @return 
      */
     @RequestMapping(value="/{classId}",method=PUT)
-    @ResponseBody
-    public void editClassInfo(@PathVariable int classId){
-        System.out.println("修改"+classId);
+    //@ResponseBody
+    public void updateClass(@PathVariable int classId){
+        //System.out.println("修改"+classId);
+        return;
     }
     
     /**
@@ -79,11 +105,14 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}/student",method=GET)
-    @ResponseBody
-    public Object getClassStudent(@PathVariable int classId) throws JsonProcessingException{
+    @ResponseBody//@PathVariable int classId
+    public Object getStudentList(@PathVariable Integer classid) throws JsonProcessingException{
         //取学生列表
         List<User> useres=new ArrayList<User>();
         User user=new User();
+        user.setId(8);
+        user.setName("用户XXX");
+        user.setNumber("1867745……");
         useres.add(user);
         return useres;
     }
@@ -97,8 +126,9 @@ public class ClassController {
      */
     @RequestMapping(value="/{classId}/student",method=POST)
     @ResponseBody
-    public Object studentSelectClass(@RequestBody Class cla) throws JsonProcessingException{
+    public Object chooseClass(@PathVariable Integer classid) throws JsonProcessingException{
         System.out.println("选课了");
+        Class cla=new Class();
         return cla;
     }
     
@@ -111,8 +141,8 @@ public class ClassController {
      */
     @RequestMapping(value="/{classId}/student/{studentId}",method=DELETE)
     @ResponseBody
-    public void studentCancelClass(@PathVariable int classId,int studentId){
-
+    public void cancelClass(@PathVariable int classId,int studentId){
+        //删除程序
     }
     
     /**
@@ -157,8 +187,15 @@ public class ClassController {
     @RequestMapping(value="/{classId}/classgroup",method=GET)
     @ResponseBody
     public Object getClassGroup(@PathVariable int classId) throws JsonProcessingException{
-        Object obj=new Object();
-        return obj;
+        Group group=new Group();
+        User[] users=new User[2];
+        users[0]=new User();
+        users[0].setId(8);
+        users[0].setName("用户XXX");
+        users[0].setNumber("1876545……");
+        group.setLeader(users[0]);
+        group.setMembers(users);
+        return group;
     }
     
     /**
