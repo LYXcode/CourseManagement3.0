@@ -10,9 +10,9 @@ $.ajax({
     	
 	  	inp[0].value=data.name;
 		inp[1].value=data.gender;
-		inp[2].value=data.school.name;
-		inp[3].value=data.school.name;
-		inp[4].value=data.title;
+		//inp[2].value=data.school.name;
+		//inp[3].value=data.school.name;
+		//inp[4].value=data.title;
 		inp[5].value=data.email;
 		inp[6].value=data.phone;
 		
@@ -20,24 +20,21 @@ $.ajax({
        }
 });
 function onClick(){
-            	$.ajax({
-            		url:'/me',
-            		type:'PUT',
-					contentType: 'application/json',
-					data: JSON.stringify({
+    $.ajax({
+        url:'/me',
+        type:'PUT',
+		contentType: 'application/json',
+		data: JSON.stringify({
 		"phone":$('#phone').val(),
-		"gender":$('#gender').val(),
+		//"gender":$('#gender').val(),
 	    "name":$('#name').val(),
-	    "school":$('#university').val(),
-	    "title":$('#title').val(),
+	    //"school":$('#university').val(),
+	    //"title":$('#title').val(),
 	    "number":$('#number').val(),
 	    "email":$('#E-Mail').val()
 		}),
-                    success:function(data){
-                       
-                       window.location.href="user.html";
-                       }
-            	});
-            }
-          
-            }
+		success:function(data){
+			window.location.href="student_user.html";
+    	}
+    });
+};

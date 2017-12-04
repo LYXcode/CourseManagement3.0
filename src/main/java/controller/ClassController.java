@@ -1,14 +1,12 @@
 package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
+import java.util.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import entity.*;
+import entity.Class;
 
 /**
  * 
@@ -21,19 +19,24 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Controller
 @RequestMapping("/class")
 public class ClassController {
-    private ObjectMapper mapper=new ObjectMapper();
-    private Object obj;
     /**
      * 获取与当前用户相关的或者符合条件的班级列表
      * @author 艾星
      * @return 与用户相关的班级列表
      * @throws JsonProcessingException 
      */
-    @RequestMapping(value="/",method=GET)
-    public String getClassAboutUser(String courseName,String teacherName) throws JsonProcessingException{
+    @RequestMapping(method=GET)
+    @ResponseBody
+    public Object getClassAll(@PathVariable String courseName,String teacherName) throws JsonProcessingException{
         //从数据库中取出对应类obj
-        return mapper.writeValueAsString(obj);
+        System.out.println(courseName);
+        List<Class> classes=new ArrayList<Class>();
+        Class cla=new Class();
+        cla.setName("后台传来的班级");
+        classes.add(cla);
+        return classes;
     }
+    
     
     /**
      * 按ID获取班级详情
@@ -76,9 +79,13 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}/student",method=GET)
-    public String getClassStudent(int classId) throws JsonProcessingException{
+    @ResponseBody
+    public Object getClassStudent(@PathVariable int classId) throws JsonProcessingException{
         //取学生列表
-        return mapper.writeValueAsString(obj);
+        List<User> useres=new ArrayList<User>();
+        User user=new User();
+        useres.add(user);
+        return useres;
     }
     
     /**
@@ -89,8 +96,10 @@ public class ClassController {
      * @throws JsonProcessingException
      */
     @RequestMapping(value="/{classId}/student",method=POST)
-    public String studentSelectClass(int classId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @ResponseBody
+    public Object studentSelectClass(@RequestBody Class cla) throws JsonProcessingException{
+        System.out.println("选课了");
+        return cla;
     }
     
     /**
@@ -101,8 +110,9 @@ public class ClassController {
      * @return
      */
     @RequestMapping(value="/{classId}/student/{studentId}",method=DELETE)
-    public String studentCancelClass(int classId,int studentId){
-        return "";
+    @ResponseBody
+    public void studentCancelClass(@PathVariable int classId,int studentId){
+
     }
     
     /**
@@ -116,8 +126,10 @@ public class ClassController {
      * @throws JsonProcessingException
      */
     @RequestMapping(value="/{classId}/attendance",method=GET)
-    public String getCallingSituationById(int classId,boolean showPresent,boolean showLate,boolean showAbsent) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @ResponseBody
+    public Object getCallingSituationById(@PathVariable int classId,boolean showPresent,boolean showLate,boolean showAbsent) throws JsonProcessingException{
+        Object obj=new Object();
+        return obj;
     }
     
     /**
@@ -129,8 +141,10 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}/attendance/{studentId}",method=PUT)
-    public String callTheRoll(int classId,int studentId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @ResponseBody
+    public Object callTheRoll(@PathVariable int classId,int studentId) throws JsonProcessingException{
+        Object obj=new Object();
+        return obj;
     }
     
     /**
@@ -141,8 +155,10 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}/classgroup",method=GET)
-    public String getClassGroup(int classId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @ResponseBody
+    public Object getClassGroup(@PathVariable int classId) throws JsonProcessingException{
+        Object obj=new Object();
+        return obj;
     }
     
     /**
@@ -153,7 +169,8 @@ public class ClassController {
      * @throws JsonProcessingException 
      */
     @RequestMapping(value="/{classId}/classgroup",method=PUT)
-    public String editClassGroup(int classId) throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @ResponseBody
+    public void editClassGroup(@PathVariable int classId) throws JsonProcessingException{
+        
     }
 }

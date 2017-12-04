@@ -15,6 +15,7 @@ public class Class {
     int calling;
     String roster;
     Proportions proportions;
+    Course course;
 	public int getId() {
 		return id;
 	}
@@ -63,4 +64,10 @@ public class Class {
 	public void setProportions(Proportions proportions) {
 		this.proportions = proportions;
 	}
+    public Course getCourse() {
+        return course;
+    }
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 }

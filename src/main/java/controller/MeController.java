@@ -34,12 +34,9 @@ public class MeController {
 		//return mapper.writeValueAsString(obj);
 	    User user=new User();
 	    user.setEmail("21445");
-	    user.setGender("男");
 	    user.setName("fdh");
-	    user.setPhone("1243657");
-	    user.setSchool("XXX");
-	    user.setStuffNum("24329");
-	    user.setType("副教授");
+	    user.setPhone("1877653……");
+	    user.setNumber("1877653……");
 	    return user;
 	}
 	/**
@@ -55,12 +52,11 @@ public class MeController {
 	      System.out.println(user.getPhone());
 	        System.out.println(user.getName());
 	        System.out.println(user.getSchool());
-	        System.out.println(user.getStuffNum());
 	        System.out.println(user.getEmail());
 	        return "teacher_user.html";
 	}
 	   /**
-     * 绑定当前用户
+     * 修改/绑定当前用户
      * @author 艾星
      * @param user 前端传回的数据
      * @return String 返回Json数据
@@ -68,13 +64,11 @@ public class MeController {
      */
     @RequestMapping(value="/me",method=PUT)
     @ResponseBody
-    public String bindCurrentUser(@RequestBody User user) throws JsonProcessingException{
+    public void bindCurrentUser(@RequestBody User user) throws JsonProcessingException{
           System.out.println(user.getPhone());
             System.out.println(user.getName());
             System.out.println(user.getSchool());
-            System.out.println(user.getStuffNum());
             System.out.println(user.getEmail());
-            return "teacher_index.html";
     }
 	/**
 	 * 微信小程序/OAuth2登录
@@ -99,7 +93,6 @@ public class MeController {
 	    System.out.println(user.getPassword());
 	    System.out.println(user.getName());
 	    System.out.println(user.getSchool());
-	    System.out.println(user.getStuffNum());
 	    System.out.println(user.getEmail());
 	    return "";
 	}

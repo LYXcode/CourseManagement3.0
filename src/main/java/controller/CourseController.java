@@ -38,8 +38,6 @@ public class CourseController {
 	    
 	    Course course1=new Course();
 		course1.setName("OOAD");
-		course1.setClassNum(3);
-		course1.setStuNum(80);
 		course1.setStartTime(date);
 		course1.setEndTime(date);
 		
@@ -47,8 +45,6 @@ public class CourseController {
 		
 	    Course course2=new Course();
 	    course2.setName("OOAD");
-	    course2.setClassNum(3);
-	    course2.setStuNum(80);
 	    course2.setStartTime(date);
 	    course2.setEndTime(date);
 
@@ -63,10 +59,10 @@ public class CourseController {
 	 */
 	@RequestMapping(method=POST)
 	@ResponseBody
-	public String createCourse(@RequestBody Course course) throws JsonProcessingException{
+	public Object createCourse(@RequestBody Course course) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
-	    System.out.println(course.getPro().geta());
-		return "";
+	    Course cour=new Course();
+		return cour;
 	}
 	/**
 	 * 按ID获取课程
@@ -79,7 +75,6 @@ public class CourseController {
 	@ResponseBody
 	public Object getCourseById(@PathVariable String courseId) throws JsonProcessingException{
 		Course course=new Course();
-		course.setId(courseId);
 		course.setName("OOAD");
 		course.setDescription("OOAD是门……");
 		return course;

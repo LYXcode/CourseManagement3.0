@@ -8,12 +8,12 @@ $.ajax({
     		inp[i]=document.getElementsByTagName('input')[i];
     	$('#username').html(data.phone);
     	inp[1].value=data.name;
-	  	inp[3].value=data.school;
-	  	inp[4].value=data.type;
+	  	//inp[3].value=data.school;
+	  	//inp[4].value=data.type;
 	  	inp[5].value=data.email;
 	  	inp[6].value=data.phone;
-	  	inp[2].value=data.gender;
-	  	inp[0].value=data.stuffNum;
+	  	//inp[2].value=data.gender;
+	  	//inp[0].value=data.stuffNum;
        }
 });
 function onClick(){
@@ -27,7 +27,7 @@ function onClick(){
 	    "name":$('#name').val(),
 	    "school":$('#university').val(),
 	    "type":$('#title').val(),
-	    "stuffNum":$('#number').val(),
+	    "number":$('#number').val(),
 	    "email":$('#E-Mail').val()
 		}),
 		success:function(data){
