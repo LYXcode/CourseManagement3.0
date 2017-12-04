@@ -4,7 +4,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 import java.util.*;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import entity.*;
@@ -27,11 +26,10 @@ public class ClassController {
      * @return 与用户相关的班级列表
      * @throws JsonProcessingException 
      */
-    @RequestMapping(method=GET)
+    @RequestMapping(value="?courseName=*&teacherName=*",method=GET)
     @ResponseBody
-    public Object getClassList(@PathVariable String courseName,String teacherName) throws JsonProcessingException{
+    public Object getClassListByParam(@PathVariable Integer courseId,Integer teacherId) throws JsonProcessingException{
         //从数据库中取出对应类obj
-        System.out.println(courseName);
         List<Class> classes=new ArrayList<Class>();
         Class cla=new Class();
         cla.setId(5);
@@ -45,6 +43,28 @@ public class ClassController {
         return classes;
     }
     
+    /**
+     * 获取与当前用户相关的或者符合条件的班级列表
+     * @author 艾星
+     * @return 与用户相关的班级列表
+     * @throws JsonProcessingException 
+     */
+    @RequestMapping(method=GET)
+    @ResponseBody
+    public Object getClassList() throws JsonProcessingException{
+        //从数据库中取出对应类obj
+        List<Class> classes=new ArrayList<Class>();
+        Class cla=new Class();
+        cla.setId(5);
+        cla.setName("周三12节");
+        cla.setNumStudent(66);
+        cla.setTime("周三12节，单周周一56节");
+        cla.setSite("海韵206，公寓405");
+        cla.setCourseName("OOAD(后台)");
+        cla.setCourseTeacher("XX老师");
+        classes.add(cla);
+        return classes;
+    }
     
     /**
      * 按ID获取班级详情
@@ -56,12 +76,8 @@ public class ClassController {
     @ResponseBody
     public Object getClass(@PathVariable int classId) throws JsonProcessingException{        
         Class cla=new Class();
-        Proportions pro=new Proportions();
-        pro.seta(50);
-        pro.setb(30);
-        pro.setc(20);
-        pro.setReport(40);
-        pro.setPresentation(60);
+        Integer[] pro=new Integer[4];
+        pro[0]=40;
         
         cla.setId(5);
         cla.setName("周三12节");
@@ -92,7 +108,8 @@ public class ClassController {
      * @return 
      */
     @RequestMapping(value="/{classId}",method=PUT)
-    //@ResponseBody
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @ResponseBody
     public void updateClass(@PathVariable int classId){
         //System.out.println("修改"+classId);
         return;
@@ -106,7 +123,7 @@ public class ClassController {
      */
     @RequestMapping(value="/{classId}/student",method=GET)
     @ResponseBody//@PathVariable int classId
-    public Object getStudentList(@PathVariable Integer classid) throws JsonProcessingException{
+    public Object getStudentList(@PathVariable int classId) throws JsonProcessingException{
         //取学生列表
         List<User> useres=new ArrayList<User>();
         User user=new User();
@@ -125,8 +142,9 @@ public class ClassController {
      * @throws JsonProcessingException
      */
     @RequestMapping(value="/{classId}/student",method=POST)
+    @ResponseStatus(value=HttpStatus.CREATED)
     @ResponseBody
-    public Object chooseClass(@PathVariable Integer classid) throws JsonProcessingException{
+    public Object chooseClass(@PathVariable Integer classId) throws JsonProcessingException{
         System.out.println("选课了");
         Class cla=new Class();
         return cla;
@@ -140,8 +158,9 @@ public class ClassController {
      * @return
      */
     @RequestMapping(value="/{classId}/student/{studentId}",method=DELETE)
+    @ResponseStatus(value=HttpStatus.NO_CONTENT)
     @ResponseBody
-    public void cancelClass(@PathVariable int classId,int studentId){
+    public void cancelClass(@PathVariable Integer classId,Integer studentId){
         //删除程序
     }
     
