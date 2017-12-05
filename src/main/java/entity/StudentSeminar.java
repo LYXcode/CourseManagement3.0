@@ -13,8 +13,8 @@ public class StudentSeminar {
 	String name;
 	Enum<GroupingEnum> groupingMethod;
 	String courseName;
-	Date startTime;
-	Date endTime;
+	String startTime;
+	String endTime;
 	int classCalling;
 	boolean isLeader;
 	boolean areTopicsSelected;
@@ -42,16 +42,16 @@ public class StudentSeminar {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	public Date getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-	public Date getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Date endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 	public int getClassCalling() {

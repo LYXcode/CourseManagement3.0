@@ -12,8 +12,8 @@ public class SeminarDetail {
 	int id;
 	String name;
 	String site;
-	Date startTime;
-	Date endTime;
+	String startTime;
+	String endTime;
 	String teacherName;
 	String teacherEmail;
 	public int getId() {
@@ -34,16 +34,16 @@ public class SeminarDetail {
 	public void setSite(String site) {
 		this.site = site;
 	}
-	public Date getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-	public Date getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
-	public void setEndTime(Date endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 	public String getTeacherName() {

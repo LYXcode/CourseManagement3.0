@@ -76,7 +76,7 @@ public class CourseController {
 	 */
 	@RequestMapping(value="/{courseId}",method=GET)
 	@ResponseBody
-	public Object getCourse(@PathVariable String courseId) throws JsonProcessingException{
+	public Object getCourse(@PathVariable Integer courseId) throws JsonProcessingException{
 		CourseDetail courseDetail=new CourseDetail();
 		courseDetail.setId(9);
 		courseDetail.setTeacherEmail("XXX@XXX.com");
