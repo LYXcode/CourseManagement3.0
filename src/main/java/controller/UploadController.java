@@ -2,8 +2,10 @@ package controller;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import entity.URL;
 
 /**
  * 
@@ -26,8 +28,11 @@ public class UploadController {
      * @throws JsonProcessingException
      */
     @RequestMapping(value="/avatar",method=POST)
-    public String getAvatar() throws JsonProcessingException{
-        return mapper.writeValueAsString(obj);
+    @ResponseBody
+    public Object getAvatar() throws JsonProcessingException{
+        URL url=new URL();
+        url.setUrl("//XXXX//XXXX");
+        return url;
     }
     
     /**

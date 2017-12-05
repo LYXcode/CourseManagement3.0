@@ -3,7 +3,6 @@ package controller;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.*;
 
 import org.springframework.http.HttpStatus;
@@ -150,7 +149,8 @@ public class ClassController {
     @ResponseBody
     public Object chooseClass(Integer id,@PathVariable Integer classId) throws JsonProcessingException, MalformedURLException{
         //System.out.println("选课了");
-        URL url=new URL("https://www.baidu.com/");
+        URL url=new URL();
+        url.setUrl("//XXXX//XX");
         //String url="/class/34/student/2757";
         return url;
     }

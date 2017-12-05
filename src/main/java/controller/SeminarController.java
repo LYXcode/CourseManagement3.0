@@ -48,7 +48,7 @@ public class SeminarController {
         sem.setStartTime("24");
         sem.setEndTime("67");
         sem.setTopics(topics);
-        return topics;
+        return sem;
     }
     /**
      * 按Id修改讨论课
@@ -143,7 +143,8 @@ public class SeminarController {
         topic.setGroupMemberLimit(5);
         topic.setGroupLeft(3);
         topics.add(topic);
-        return topics;
+        //return topics;
+        return topic;
     }
     
     /**

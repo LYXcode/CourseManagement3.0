@@ -19,6 +19,7 @@ public class User {
 	String password;
 	String unionId;
 	String avatar;
+	String jwt;
 	public int getId() {
 		return id;
 	}
@@ -91,4 +92,10 @@ public class User {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+    public String getJwt() {
+        return jwt;
+    }
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
+    }
 }

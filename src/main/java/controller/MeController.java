@@ -1,13 +1,20 @@
 package controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import entity.GenderEnum;
+import entity.School;
 import entity.User;
+import entity.UserEnum;
 
 /**
  * MeController class
@@ -28,10 +35,17 @@ public class MeController {
 	public Object getCurrentUser() throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
 	    User user=new User();
+	    user.setId(8);
+	    user.setType(UserEnum.teacher);
+	    user.setName("教师XXXX");
 	    user.setEmail("21445");
-	    user.setName("fdh");
+	    user.setName("fdh");	    
+	    user.setGender(GenderEnum.female);
+	    user.setSchool(new School());
 	    user.setPhone("1877653……");
 	    user.setNumber("1877653……");
+	    user.setTitle("");
+	    user.setAvatar("//XXX//XXX");
 	    return user;
 	}
 	/**
@@ -41,14 +55,14 @@ public class MeController {
 	 * @return String 返回Json数据
 	 * @throws JsonProcessingException Json处理异常
 	 */
-	@RequestMapping(value="/me",method=PATCH)
+	@RequestMapping(value="/me",method=PUT)
 	@ResponseBody
-	public String updateCurrentUser(@RequestBody User user) throws JsonProcessingException{
-	      System.out.println(user.getPhone());
-	        System.out.println(user.getName());
-	        System.out.println(user.getSchool());
-	        System.out.println(user.getEmail());
-	        return "teacher_user.html";
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public String updateCurrentUser(String user) throws JsonProcessingException{
+	      //System.out.println(user.getPhone());
+	        //System.out.println(user.getName());
+	        //System.out.println(user.getEmail());
+	        return "";
 	}
 	   /**
      * 修改/绑定当前用户
@@ -57,7 +71,7 @@ public class MeController {
      * @return String 返回Json数据
      * @throws JsonProcessingException Json处理异常
      */
-    @RequestMapping(value="/me",method=PUT)
+    @RequestMapping(value="/me",method=PATCH)
     @ResponseBody
     public void bindCurrentUser(@RequestBody User user) throws JsonProcessingException{
           System.out.println(user.getPhone());
@@ -75,20 +89,69 @@ public class MeController {
 	 * @throws JsonProcessingException Json处理异常
 	 */
 	@RequestMapping(value="/signin",method=GET)
-	public void signinWechat(String code,String state,String successUrl) throws JsonProcessingException{
-		//return mapper.writeValueAsString(obj);
-		//return mapper.writeValueAsString("{\"id\": 3486, \"type\": \"student\", \"name\": \"\u5F20\u4E09\", \"jwt\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaWQiOiJPQTAwMDEiLCJpYXQiOjE0ODI2NTcyODQyMjF9.TeJpy936w610Vrrm+c3+RXouCA9k1AX0Bk8qURkYkdo=\"}");
+	@ResponseBody
+	public Object signinWechat(@RequestParam String code,@RequestParam String state,@RequestParam String success_url) throws JsonProcessingException{
+	       User user=new User();
+	        user.setId(8);
+	        user.setType(UserEnum.teacher);
+	        user.setName("教师XXXX");
+	        user.setEmail("21445");
+	        user.setName("fdh");        
+	        user.setGender(GenderEnum.female);
+	        user.setSchool(new School());
+	        user.setPhone("1877653……");
+	        user.setNumber("1877653……");
+	        user.setTitle("");
+	        user.setAvatar("//XXX//XXX");
+	        user.setJwt("dsdgfdh");
+	        return user;
 	}
 	
+	/**
+	 * 
+	 * @param new_user
+	 * @return
+	 */
+	   @RequestMapping(value="/signin",method=POST)
+	    @ResponseBody
+	    public Object loginUser(String new_user){
+	        User user=new User();
+	        user.setId(8);
+	        user.setType(UserEnum.teacher);
+	        user.setName("教师XXXX");
+	        user.setEmail("21445");
+	        user.setName("fdh");        
+	        user.setGender(GenderEnum.female);
+	        user.setSchool(new School());
+	        user.setPhone("1877653……");
+	        user.setNumber("1877653……");
+	        user.setTitle("");
+	        user.setAvatar("//XXX//XXX");
+	        user.setJwt("dsdgfdh");
+	        return user;
+	    }
 	
+	/**
+	 * 
+	 * @param new_user
+	 * @return
+	 */
 	@RequestMapping(value="/register",method=POST)
 	@ResponseBody
-	public String createNewUser(@RequestBody User user){
-	    System.out.println(user.getPhone());
-	    System.out.println(user.getPassword());
-	    System.out.println(user.getName());
-	    System.out.println(user.getSchool());
-	    System.out.println(user.getEmail());
-	    return "";
+	public Object createNewUser(String new_user){
+        User user=new User();
+        user.setId(8);
+        user.setType(UserEnum.teacher);
+        user.setName("教师XXXX");
+        user.setEmail("21445");
+        user.setName("fdh");        
+        user.setGender(GenderEnum.female);
+        user.setSchool(new School());
+        user.setPhone("1877653……");
+        user.setNumber("1877653……");
+        user.setTitle("");
+        user.setAvatar("//XXX//XXX");
+        user.setJwt("dsdgfdh");
+        return user;
 	}
 }
