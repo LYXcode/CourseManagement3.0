@@ -9,10 +9,10 @@ $.ajax({
     	$('#username').html(data.phone);
     	inp[1].value=data.name;
 	  	//inp[3].value=data.school;
-	  	//inp[4].value=data.type;
+	  	inp[4].value=data.type;
 	  	inp[5].value=data.email;
 	  	inp[6].value=data.phone;
-	  	//inp[2].value=data.gender;
+	  	inp[2].value=data.gender;
 	  	//inp[0].value=data.stuffNum;
        }
 });
@@ -23,10 +23,10 @@ function onClick(){
 		contentType: 'application/json',
 		data: JSON.stringify({
 		"phone":$('#phone').val(),
-		"gender":$('#gender').val(),
+		//"gender":$('#gender').val(),
 	    "name":$('#name').val(),
-	    "school":$('#university').val(),
-	    "type":$('#title').val(),
+	    //"school":$('#university').val(),
+	    //"type":$('#title').val(),
 	    "number":$('#number').val(),
 	    "email":$('#E-Mail').val()
 		}),

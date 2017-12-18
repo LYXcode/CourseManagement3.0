@@ -17,12 +17,13 @@ $.ajax({
        }
 });
 
-function uploadReport(){
-	
-}
+function uploadReport() 
+{ 
+document.getElementById("btn_file").click(); 
+} 
 
 function checkScore(){
-	
+	window.location.href="student_grade.html";
 }
 	
 function jumpToTopic()

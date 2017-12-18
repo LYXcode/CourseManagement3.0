@@ -3,12 +3,13 @@ package controller;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import java.util.*;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import entity.*;
 import entity.Class;
@@ -19,7 +20,7 @@ import entity.Class;
  * @author 吕柏翰
  * @date 2017/11/27
  */
-@Controller
+@RestController
 @RequestMapping("/course")
 public class CourseController {
     
@@ -178,7 +179,7 @@ public class CourseController {
 	@RequestMapping(value="/{courseId}/seminar",method=POST)
 	@ResponseBody
 	@ResponseStatus(value=HttpStatus.CREATED)
-	public Object createSeminar(@PathVariable int courseId,@RequestBody String JsonString) throws JsonProcessingException{
+	public Object createSeminar(String JsonString,@PathVariable Integer courseid) throws JsonProcessingException{
 		//return mapper.writeValueAsString(obj);
 	    Seminar seminar=new Seminar();
 	    seminar.setId(8);

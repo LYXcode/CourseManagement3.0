@@ -1,22 +1,21 @@
-// JavaScript Document
 function getQueryString(name) { 
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
     var r = window.location.search.substr(1).match(reg); 
     if (r != null) return unescape(r[2]); return null; 
     };
 
-var groupId=getQueryString("id");
+var groupId=5;
 var classId=1;
-       function onClick(){
-            	$.ajax({
-            		url:'/class/'+classId+'/student?nameBeginWith=张',
-            		type:'GET',
-                    success:function(userData){
-                      $('.number').html(userData.number);
-					   $('.name').html(userData.name);
-                       }
-            	});
-            };
+function onClick(){
+	$.ajax({
+		url:"/class/"+classId+"/student",
+	    type:'GET',
+        success:function(userData){
+            $('.number').html(userData[0].number);
+			   $('.name').html(userData[0].name);
+        }
+	});
+};
 			
 			
        function Add(){
@@ -26,7 +25,13 @@ var classId=1;
 					contentType:"application/json",
 					data:JSON.stringify({
 						"id":247
-					})
+					}),
+					success:function(){
+						alert("添加成功");
+					},
+					success:function(){
+						alert("已添加");
+					}
             	});
             };
 			
@@ -38,6 +43,12 @@ var classId=1;
 					contentType:"application/json",
 					data:JSON.stringify({
 						"id":247
-					})
+					}),
+					success:function(){
+						alert("删除成功");
+					},
+					success:function(){
+						alert("已删除");
+					}
             	});
             }

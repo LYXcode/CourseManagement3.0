@@ -127,6 +127,7 @@ public class ClassController {
     @ResponseBody
     public Object getStudentList(@PathVariable Integer classId) throws JsonProcessingException{
         //取学生列表
+        System.out.println("dsaf");
         List<User> useres=new ArrayList<User>();
         User user=new User();
         user.setId(8);

@@ -103,8 +103,9 @@ public class GroupController {
     @RequestMapping(value="/{groupId}/add",method=PUT)
     @ResponseStatus(value=HttpStatus.NO_CONTENT)
     @ResponseBody
-    public Object addGroupMember(@PathVariable int groupId,@RequestBody String request) throws JsonProcessingException{
-    	return null;
+    public Object addGroupMember(@PathVariable Integer groupId,String request) throws JsonProcessingException{
+    	System.out.println("添加");
+        return null;
     }
     /**
      * 移除成员
@@ -118,7 +119,8 @@ public class GroupController {
     @ResponseStatus(value=HttpStatus.NO_CONTENT)
     @ResponseBody
     public Object removeGroupMember(@PathVariable int groupId,@RequestBody String request) throws JsonProcessingException{
-    	return null;
+        System.out.println("删除");
+        return null;
     }
     /**
      * 小组按ID选择话题

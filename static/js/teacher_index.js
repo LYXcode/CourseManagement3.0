@@ -45,7 +45,7 @@ $(function(){
 });
 
 $(function(){
-	$('.classtitle').click(function(){
+	$('.title').click(function(){
 		var courseid=$(this).attr('data-course-id');
 		window.location.href="../teacher/course/teacher_course_index.html?id="+courseid;
 	});

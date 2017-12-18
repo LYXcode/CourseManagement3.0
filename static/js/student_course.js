@@ -15,11 +15,11 @@ $.ajax({
 function onClick(){
 	var id="5";
             	$.ajax({				
-            		url:'/class/{classId}/student',
+            		url:'/class/'+id+'/student',
             		type:'POST',
 					contentType: 'application/json',
 					data: JSON.stringify({
-		"id":id
+						"id":id
 					}),
                     success:function(data){
                        alert("选课成功");
