@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xmu.crms.mapper.UserMapper">
+
+    <resultMap id="userResultMap" type="User">
+        <id property="id" column="id"/>
+        <result property="phone" column="phone"/>
+        <result property="wechatId" column="wechat_id"/>
+        <result property="openid" column="openid"/>
+        <result property="avatar" column="avatar"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="gender" column="gender"/>
+        <result property="type" column="type"/>
+        <result property="number" column="number"/>
+        <result property="education" column="education"/>
+        <result property="title" column="title"/>
+        <result property="email" column="email"/>
+        <association property="school" column="school_id" select="xmu.crms.mapper.SchoolMapper.getSchoolBySchoolId"/>
+    </resultMap>
+
+    <select id="signInPhone" resultMap="userResultMap">
+        SELECT
+        id, phone, wechat_id, openid, avatar, password, name, school_id, gender, type, number, education, title, email
+        FROM user_info
+        WHERE phone=#{phone} AND password=#{password}
+    </select>
+    
+    <select id="getUserByUserId" resultMap="userResultMap">
+        SELECT
+        id, phone, wechat_id, openid, avatar, password, name, school_id, gender, type, number, education, title, email
+        FROM user_info
+        WHERE id=#{id}
+    </select>
+    
+    <select id="listUserIdByUserName" resultMap="userResultMap">
+        SELECT
+        id, phone, wechat_id, openid, avatar, password, name, school_id, gender, type, number, education, title, email
+        FROM user_info
+        WHERE name=#{name}
+    </select>
+    
+    <select id="listUserByClassId" resultMap="userResultMap">
+        SELECT
+        user_info.id, phone, wechat_id, openid, avatar, password, name, school_id, gender, type, number, education, title, email
+        FROM user_info JOIN course_selection
+        WHERE class_id=#{id} AND course_selection.student_id=user_info.id AND name LIKE CONCAT('%',#{name},'%') AND number LIKE CONCAT('%',#{number},'%')
+    </select>
+    
+    <update id="updateUserByUserId">
+        UPDATE user_info
+        SET phone=#{phone},
+         avatar=#{avatar}, name=#{name}, 
+         gender=#{gender}, type=#{type}, number=#{number}, education=#{education}, title=#{title}, 
+         email=#{email}
+         WHERE id=#{id}
+    </update>
+    
+    <insert id="signUpPhone" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_info
+        (phone, password)
+        VALUES (#{phone}, #{password})
+    </insert>
+</mapper>

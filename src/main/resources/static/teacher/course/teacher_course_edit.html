@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>新建课程</title>
+    <link href="../../css/teacher_course_new.css" rel="stylesheet" type="text/css"/>
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../js/teacher_course_new.js"></script>
+</head>
+<body>
+    	<div class="top">
+        	<div class="font">
+        		课堂管理系统
+        	</div>
+        	<div class="icon">
+        		<img src="../../img/home.png" onClick="toIndex()">首页
+        		<img src="../../img/help.png">帮助
+        		<img src="../../img/exit.png">退出
+        	</div>
+        	<div class="clear"></div>
+    	</div>
+        <div class="body">
+         <div class="navigation">
+                <div class="title">导航</div>
+                <div class="line"></div>
+                <div class="courseIntroduction"><a class="guidefont" href="../teacher_user.html">基本信息</a>
+                  <a class="guidefont" href="../teacher_index.html">课程信息</a>
+                  <a class="guidefont" href="teacher_course_new.html">新建课程</a>
+                </div>
+            </div>
+            <div class="content">
+           
+		  <div class="title">新建课程</div>
+		  <hr class="line"/>
+	     
+        <br/>
+       <div class="form">
+          <div class="itemName" >
+         课程名称*：<input type="text" name="coursename" id="name"/>
+         
+         <br/>
+         <br/>
+          开始时间*：<input type="date" name="begintime" id="startTime"/>  结束时间*：<input type="date" name="endtime" id="endTime"/><br/><br/>
+          
+          课程介绍：<br/>
+          <textarea name="courseinfo" cols="80" rows="5" id="description"></textarea><br/>
+          
+         
+          评分规则*： <br/>
+         
+       <div class="scorerule"><p> 讨论课分数占比:<input type="text" name="seminarscore" onchange="if(/\D/.test(this.value)){alert('讨论课分数占比只能输入数字');this.value='';}" id="presentation">报告分数占比：<input type="text" name="reportscore"onchange="if(/\D/.test(this.value)){alert('报告分数占比只能输入数字');this.value='';}" id="report"></p>
+      
+       <p>五分占比:<input type="text" name="five" onchange="if(/\D/.test(this.value)){alert('五分占比只能输入数字');this.value='';}"id="a">四分占比：<input type="text" name="four" onchange="if(/\D/.test(this.value)){alert('四分占比只能输入数字');this.value='';}"id="b">三分占比：<input type="text" name="three" onchange="if(/\D/.test(this.value)){alert('三分占比只能输入数字');this.value='';}"id="c"></p>
+         </div>
+         
+         
+        <br/>
+        <div class="buttons">
+          
+          <input class="button" type="submit" name="submit" onclick="onClick()"/><input class="button" type="reset" name="reset"/>
+          
+    </div>
+          </div>
+      </div>
+          </div>
+
+		
+            </div>
+            
+           
+            <div class="clear"></div>
+      
+</body>
+</html>

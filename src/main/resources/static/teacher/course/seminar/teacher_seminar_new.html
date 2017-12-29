@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建讨论课</title>
+    <link  href="../../../css/teacher_seminar_new.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../../js/teacher_seminar_new.js"></script>
+</head>
+<body>
+    	<div class="top">
+        
+
+        	<div class="font">
+        		课堂管理系统
+           </div>
+              <div class="icon">
+        		<img src="../../../img/home.png" onClick="toIndex()">首页
+        		<img src="../../../img/help.png">帮助
+        		<img src="../../../img/exit.png">退出
+        	</div>
+             
+       
+    	</div>
+        
+        <div class="body">
+            <div class="navigation">
+                <div class="courseName">OOAD</div>
+                <div class="line"></div>
+                <div class="courseIntroduction">ooad is xxx</div>
+            </div>
+         <div class="content">
+                <div class="block">
+                    <div class="title">创建讨论课</div>
+                    <div class="returnButton" onClick="onReturn()">返回上一页</div>
+                    <div class="line"></div>
+                    <div class="itemBody">
+                        <div class="item">
+                          <label class="itemName" >讨论课名称:</label>
+                          <input type="text" name="seminarName" class="bigInput" id="name">
+                        </div>
+                        <div class="item" style="height:40%;">
+                          <label class="itemName">讨论课说明:</label>
+                          <textarea class="textStyle" id="description"> </textarea>
+                        </div>
+                        <div class="item">
+                          <label class="itemName">分组方式: </label>
+                          <select class="bigSelect" id="groupingMethod"></select>
+                        </div>
+                        <div class="item">
+                          <label class="itemName">开始时间: </label>
+                          <input type="date" name="startTime" class="timeStyle" id="startTime">
+                          <label class="itemName" style="margin-left: 10%">结束时间: </label>
+                          <input type="date" name="startTime" class="timeStyle" id="endTime">
+                        </div>
+                        <div class="item">
+                          <label class="itemName">评分规则:</label>
+                          <label class="itemName">讨论课分数占比</label>
+                          <input type="text" name="seminarGrade" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" class="smallInput" id="presentation">
+                          <label class="itemName">报告分数占比</label>
+                          <input type="text" name="seminarGrade" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" class="smallInput" id="report" >
+                        </div>
+                        <div class="item" style="margin-left: 18%">
+                          <label class="itemName">5分占比</label>
+                          <input type="text" name="seminarGrade" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" class="smallInput" id="a">
+                          <label class="itemName">4分占比</label>
+                          <input type="text" name="seminarGrade" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" class="smallInput" id="b">
+                          <label class="itemName">3分占比</label>
+                          <input type="text" name="seminarGrade" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}" class="smallInput" id="c">
+                        </div>
+                        <div class="item">
+                          <button class="submit" onclick="onClick()">提 交</button>
+                          <button class="reset">重 置</button>
+                          <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+</body>
+</html>

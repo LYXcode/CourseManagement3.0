@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新讨论课</title>
+<link href="../../../css/teacher_seminar_index.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../../js/teacher_seminar_index.js"></script>
+</head>
+
+<body>
+    
+        <div class="top">
+          <div class="font">
+            课堂管理系统
+          </div>
+          <div class="icon">
+            <img src="../../../img/home.png" onClick="toIndex()">首页
+            <img src="../../../img/help.png">帮助
+            <img src="../../../img/exit.png">退出
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="body">
+            <div class="navigation">
+                <div class="courseName">OOAD</div>
+                <div class="line"></div>
+                <div class="courseIntroduction">ooad is xxx</div>
+            </div>
+            <div class="content">
+                <div class="block">
+                    <div class="title">讨论课1</div>
+                    <div class="returnButton" onclick="onReturn()">返回上一页</div>
+                    <div class="line"></div>
+                    <div class="itemBody">
+                    
+						<div class="item">
+                          <label class="itemName">讨论课名称：</label>
+						  <label class="itemName">讨论课1</label><br/>
+                          <label class="itemName">讨论课说明：</label>
+						  <label class="itemName">第一章练习</label><br/>
+						  <label class="itemName">分组方式：</label>
+						  <label class="itemName">随机分组</label><br/>
+						  <label class="itemName">开始时间：</label>
+						  <label class="itemName">2017</label><br/>
+						  <label class="itemName">结束时间：</label>
+						  <label class="itemName">2017</label><br/>
+                          <button class="leftButton" onclick="onScore()">评分</button>
+                          <button class="middleButton" onclick="onUpdate()">修改</button>
+               <button class="rightButton"  onclick="onDelete()">删除讨论课</button>
+					</div>
+					
+                </div>
+                </div>
+				 <div class="block">
+                   
+					<div class="seminarInfo">
+                    <div class="title">话题</div>
+                    <div class="line"></div>
+                   <div class="topicBlockBody">
+                   <div id="topics">
+                   <div class="topicBlock"><div class="topicBlockFont">话题A</div></div>
+                    </div>
+                    <div class="topicBlock">
+                <img class="addImg" src="../../../img/smalladd.png" alt="添加" onclick="addSeminar()">
+            </div>
+                  
+                   
+                   </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+</body>
+</html>

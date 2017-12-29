@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xmu.crms.mapper.AttendanceMapper">
+
+    <resultMap id="attendanceResultMap" type="Attendance">
+        <id property="id" column="id"/>
+        <result property="attendanceStatus" column="attendance_status"/>
+        <association property="student" column="student_id" select="xmu.crms.mapper.UserMapper.getUserByUserId"/>
+        <association property="classInfo" column="class_id" select="xmu.crms.mapper.ClassMapper.findClassByClassId"/>
+        <association property="seminar" column="seminar_id" select="xmu.crms.mapper.SeminarMapper.getSeminarBySeminarId"/>
+    </resultMap>
+
+    <insert id="insertAttendanceById" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO attendance
+        (student_id, seminar_id, class_id, attendance_status)
+        VALUES (#{student.id}, #{seminar.id}, #{classInfo.id}, #{attendanceStatus})
+    </insert>
+    
+    <select id="listAttendanceById" resultMap="attendanceResultMap">
+        SELECT
+        id, student_id, seminar_id, class_id, attendance_status
+        FROM attendance
+        <trim prefix="where" prefixOverrides="and|or">
+	        <if test="seminar.id!=null and seminar.id!=''">seminar_id=#{seminar.id}</if>
+	        <if test="classInfo.id!=null and classInfo.id!=''">AND class_id=#{classInfo.id}</if>
+        </trim>
+    </select>
+    
+    <select id="listPresentStudent" resultMap="attendanceResultMap">
+        SELECT
+        id, student_id, seminar_id, class_id, attendance_status
+        FROM attendance
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="seminar.id!=null and seminar.id!=''">seminar_id=#{seminar.id}</if>
+            <if test="classInfo.id!=null and classInfo.id!=''">AND class_id=#{classInfo.id}</if>
+            AND attendance_status=0
+        </trim>
+    </select>
+    
+    <select id="listLateStudent" resultMap="attendanceResultMap">
+        SELECT
+        id, student_id, seminar_id, class_id, attendance_status
+        FROM attendance
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="seminar.id!=null and seminar.id!=''">seminar_id=#{seminar.id}</if>
+            <if test="classInfo.id!=null and classInfo.id!=''">AND class_id=#{classInfo.id}</if>
+            AND attendance_status=1
+        </trim>
+    </select>
+    
+    <select id="listAbsenceStudent" resultMap="attendanceResultMap">
+        SELECT
+        id, student_id, seminar_id, class_id, attendance_status
+        FROM attendance
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="seminar.id!=null and seminar.id!=''">seminar_id=#{seminar.id}</if>
+            <if test="classInfo.id!=null and classInfo.id!=''">AND class_id=#{classInfo.id}</if>
+            AND attendance_status=2
+        </trim>
+    </select>
+</mapper>

@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>修改话题</title>
+<link href="../../../css/teacher_topic_edit.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../../js/teacher_topic_new.js"></script>
+
+</head>
+
+<body>
+    
+        <div class="top">
+          <div class="font">
+            课堂管理系统
+          </div>
+          <div class="icon">
+            <img src="../../../img/home.png" onClick="toIndex()">首页
+            <img src="../../../img/help.png">帮助
+            <img src="../../../img/exit.png">退出
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="body">
+            <div class="navigation">
+                <div class="courseName">OOAD</div>
+                <div class="line"></div>
+                <div class="courseIntroduction">ooad is xxx</div>
+            </div>
+            <div class="content">
+                <div class="block">
+                    <div class="title">创建话题</div>
+                    <div class="returnButton"  onclick="onReturn()">返回上一页</div>
+                    <div class="line"></div>
+                    <div class="itemBody">
+                        <div class="item">
+                          <label class="itemName">题   目 :</label>
+                          <input type="text" name="seminarName" class="bigInput" id="name">
+                        </div>
+                        <div class="item" style="height:40%;">
+                          <label class="itemName">说   明 :</label>
+                          <textarea class="textStyle" id="description"></textarea>
+                        </div>
+                        <div class="item">
+                          <label class="itemName">组数限制: </label>
+                          <input type="text" name="groupLimit" class="middleInput" id="groupLimit" >
+                        </div>
+                        <div class="item">
+                          <label class="itemName">组内人数上限: </label>
+                          <input type="text" name="groupLimit" class="middleInput" id="numLimit">
+                        </div>
+                        <div class="item">
+                          <button class="submit" onclick="onClick()">提 交</button>
+                          <button class="reset">重 置</button>
+                          <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+</body>
+</html>
